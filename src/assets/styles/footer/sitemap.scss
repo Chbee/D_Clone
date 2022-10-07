@@ -1,0 +1,100 @@
+@charset 'utf-8';
+
+.sub-top-area.sitemap {
+  padding: rem(90) 0;
+}
+
+.sitemap-wrap {
+  display: flex;
+  .sitemap-left {
+    width: rem(872);
+    > ul {
+      display: flex; flex-wrap: wrap;
+      > li { 
+        width: rem(218); margin-right: rem(109); margin: 0 rem(109) rem(80) 0;
+        &:nth-child(3n) { margin-right: 0; }
+        .category { 
+          display: block; border-bottom: 2px solid #111; font-weight: 500; font-size: rem(36); line-height: rem(43); color: #111; 
+          &.link { @include svg($iconSitemapArr); background-position: center right; }
+        }
+        ul {
+          margin-top: rem(30);
+          > li {
+            + li { margin-top: rem(20); }
+            a { display: inline-block; font-weight: 400; font-size: rem(18); line-height: 1.44; color: #111; }
+          }
+        }
+      }
+    } 
+  }
+  .sitemap-right {
+    width: rem(299); margin-left: auto;
+    > ul {
+      > li { 
+        padding: rem(22) rem(20); background: #111; 
+        a { display: inline-block; font-weight: 500; font-size: rem(16); color: #fff; }
+        + li { margin-top: rem(20); }
+        &.list-style { 
+          padding: rem(20); 
+          > a { margin: rem(9) 0 rem(20) 0; }
+        }
+        &.arrow { @include svg($iconSitemapArrWhite); background-color: #111; background-position: center right rem(20); }
+        ul {
+          > li {
+            padding: rem(10) 0;
+            a { font-weight: 300; }
+          }
+        }
+      }
+    }
+  }
+}
+
+// mobile
+@include mobile {
+
+  .sitemap-wrap { 
+    display: block; 
+    .sitemap-left {
+      width: 100%;
+      > ul {
+        > li { 
+          width: 46%; margin: 0 6% rem(100) 0;
+          &:nth-child(3n) { margin-right: 6%; }
+          &:nth-child(2n) { margin-right: 0; }
+          .category { 
+            font-size: rem(48); line-height: rem(60);
+            &.link { background-size: rem(36) auto; }
+          }
+          ul {
+            margin-top: rem(50);
+            > li {
+              + li { margin-top: rem(40); }
+              a { display: block; font-size: rem(28); }
+            }
+          }
+        }
+      }
+    }
+    .sitemap-right {
+      width: 100%; padding-top: rem(50);
+      > ul {
+        > li {
+          padding: rem(30);
+          a { display: block; font-size: rem(30); }
+          + li { margin-top: rem(40); }
+          &.list-style { 
+            padding: rem(30);
+            > a { margin: rem(20) 0 rem(30) 0; }
+          }
+          &.arrow { background-size: rem(36) auto; background-position: center right rem(30); }
+          ul {
+            li {
+              padding: rem(20) 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

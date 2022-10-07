@@ -1,0 +1,222 @@
+.vdp-datepicker__calendar header .next.disabled:after{border-left: 0px;}
+.vdp-datepicker__calendar header .prev.disabled:after{border-right: 0px;}
+.datepicker_wrap{
+  position: relative;
+  z-index: 9;
+  padding-bottom: 20px;
+  background: #fff;
+  .big{
+      width:500px;
+      height:400px;
+  }
+  .small{
+      width:100%;
+      height:auto;
+  }
+  .sky-title{
+      .dcalender {
+        >div { border-top: 2px solid #111;  }
+          header { position: absolute; min-width: rem(200); top: rem(-225); left: rem(456); align-items: center;
+              span { display: inline-block;
+                  &.prev { width: rem(35); height: rem(32); cursor: pointer; color: transparent; background: url("~@images/schedule/icon-arrow-calendar-left.png") 50% 50% no-repeat !important; background-size: contain; 
+                    &::after { display: none; }
+                  }
+                  &.day__month_btn { width: rem(275); font-size: rem(35); margin: 0 rem(30) }
+                  &.next { width:rem(35); height: rem(32); cursor: pointer; color: transparent; background: url("~@images/schedule/icon-arrow-calendar-right.png") 50% 50% no-repeat !important; background-size: contain; 
+                    &::after { display: none; }
+                  }
+              }
+          }
+          .cell_wrap { position: relative;
+            >div { height: 100% !important; 
+              p { font-size: rem(16); font-weight: 500; letter-spacing: rem(-0.4); text-align: left; color: #111; }
+            }
+            .mark {position: absolute;  bottom: rem(5); line-height: 1 !important; height: rem(8) !important; display: flex; justify-content:space-between;
+              span{ display: none;  width: rem(8); height: 0; height: rem(8); border-radius: rem(20); margin-right: rem(5);
+                &.on { display: inline-block; }
+                &.holiday { width: auto; height: auto !important; text-indent: 0; font-size: rem(13); color: #999; font-weight: 300; white-space: nowrap;}
+                &.green {  background: #006933;  }
+                &.black {  background: #111;  }
+                &.orange {  background: #e59f00;  }
+              }
+            }
+          }
+          .cell { margin:0;  width: calc( 14.28% ); 
+            &.selected { border: rem(1) solid #111; }
+          }
+          .day { padding: rem(12) rem(11); height: rem(80); border: rem(.5) solid #f2f2f2; text-align: left; text-indent: rem(2); 
+            
+          }
+          .day-header { position: relative; padding: rem(8) 0 rem(10); font-size: rem(18); background-color: #f7f7f7; margin:0; margin-bottom: 0; color: #666;
+              // &::before { z-index: 9999; position: absolute; top: 0; left:0; content: ''; display: block; width: rem(57); height: rem(2); background-color: #111; }
+              &::after { z-index: 9999; position: absolute; bottom: rem(-2); left:0; content: ''; display: block; width: rem(57); height: rem(1); background-color: #ddd; }
+          }
+      }
+  }
+}
+.vdp-datepicker__calendar{
+width:100%;
+height:100%;
+border: none;
+font-size: 13px;
+div{
+    height:100%; line-height: 46px;
+}
+}
+.dcalender>header {
+  justify-content: center;
+  display: flex;
+}
+.vdp-datepicker__calendar header span {
+  width: auto ; font-size: rem(20);
+}
+.vdp-datepicker__calendar header .prev, .vdp-datepicker__calendar header .next{
+  width: 30px; height: 20px; margin: 0 rem(15); font-size: 0; color: transparent;
+  &::after { width: 30px; height: 20px; margin: 0; transform: translate(0, 0); position: absolute; left: 0; top: 0; border: 0; content: '';}
+  &:hover {opacity: 0.7; background: transparent !important; }
+  @media (hover: none) {
+    &:hover { opacity: 1; background: transparent !important;}
+  }
+}
+.vdp-datepicker__calendar header .prev { 
+&::after { @include svg($iconCalendarPrev); }
+}
+.vdp-datepicker__calendar header .next { 
+&::after { @include svg($iconCalendarNext); }
+}
+.vdp-datepicker__calendar .cell{
+  margin: 0.5px;
+  width: calc(14.28% - 1px);
+  height: calc(16.28% - 1px);
+  >div{ font-size: rem(16); font-weight: 500; letter-spacing: rem(-0.48); }
+
+}
+
+.vdp-datepicker__calendar .cell.day{
+padding: rem(15) rem(12);
+&:hover { border: rem(.5) solid #888 !important; }
+  border: 0.5px solid #ddd; 
+  .cell_wrap{
+      display: block;
+      :first-child{
+          height: calc(100% - 20px);
+      }
+      .circle_wrap{
+          justify-content: center;
+          display: flex;
+          height:auto;
+          .circle{
+              width: 10px;
+              height: 10px;
+              -moz-border-radius: 10px;
+              -webkit-border-radius: 10px;
+              border-radius: 10px;
+              position: relative;
+              margin-right: 3px;
+          }
+          .circle.blue{
+              background: blue;
+          }
+          .circle.red{
+              background: red;
+          }
+      }
+  }
+  
+}
+
+.vdp-datepicker__calendar .cell.day.blank{
+  &:hover { border: none !important; }
+}
+
+.vdp-datepicker__calendar .cell.day.blank{
+  border: none ;
+}
+.vdp-datepicker__calendar .cell.selected {
+  background: #111111 !important;
+  color: #fff !important;
+  border: rem(1) solid #888;
+}
+.cell.disabled {
+   border: none ;
+  color: #ddd;
+  cursor: default;
+  background: #F2F2F2;
+  color: grey ;
+  font-weight: 300;
+}
+
+.ticketing-list-area {
+  .datepicker_wrap { width: 100%; padding: 0; text-align: center; border: none; }
+  .vdp-datepicker__calendar .cell.day-header { font-size: rem(18); }
+  .vdp-datepicker__calendar { width: 100%; }
+}
+
+.calendar .vdp-datepicker__calendar .cell.day-header { font-size: rem(18) !important; }
+.ticketing-list-area .item-ticketing.complete .vdp-datepicker__calendar { background-color: #f7f7f7; }
+
+/* disabled */
+.vdp-datepicker__calendar header .prev.disabled, 
+.vdp-datepicker__calendar header .next.disabled, 
+.vdp-datepicker__calendar header .up.disabled,
+.vdp-datepicker__calendar header .prev:disabled, 
+.vdp-datepicker__calendar header .next:disabled, 
+.vdp-datepicker__calendar header .up:disabled {
+opacity: .35;
+}
+
+@include mobile {
+.datepicker_wrap{ border-top: 2px solid #111;
+  .vdp-datepicker__calendar{
+    // div{ line-height: rem(90); }
+  }
+}
+.dcalender>header {
+}
+.vdp-datepicker__calendar header span {
+  font-size: rem(40);
+}
+.vdp-datepicker__calendar header .prev, .vdp-datepicker__calendar header .next{
+    width: 30px ;
+}
+.vdp-datepicker__calendar .cell{
+    >div{ font-size: rem(30); font-weight: 500; letter-spacing: rem(-0.48); }
+}
+.vdp-datepicker__calendar .cell.day{
+  padding: rem(24) rem(12); border: rem(2) solid #ddd; 
+}
+.calendar .vdp-datepicker__calendar .cell.day-header { font-size: rem(30) !important; font-weight: 500; color: #666; letter-spacing: rem(-.75); }
+
+.sky-title{
+  .dcalender { 
+      header { top: rem(-350) !important; left: auto !important; width: 100%;
+        .day__month_btn { margin: 0 rem(-30) !important; font-size: rem(40) !important; font-weight: 500; }
+      }
+      
+      .cell_wrap { position: relative;
+        >div { height: 100% !important; 
+          p { font-size: rem(30) !important; height: auto !important;}          
+          .mark {position: absolute; bottom: rem(10) !important; line-height: 1 !important; height: rem(40) !important; display: flex; justify-content:space-evenly;
+            span{ display: none; width: rem(16) !important; height: rem(16) !important; border-radius: rem(8);
+              &.on { display: inline-block; }
+              &.holiday { font-size: rem(22) !important; display: block !important; width: 100% !important; text-align: center; height: auto !important; text-indent: 0; font-size: rem(13); color: #999; font-weight: 300; white-space: nowrap;}
+              &.green {  background: #006933;  }
+              &.black {  background: #111;  }
+              &.orange {  background: #e59f00;  }
+            }
+          }
+        }
+      }
+      .cell { margin:0; line-height: rem(50) !important; width: 14.28571428571429% !important; 
+        &.selected { border: rem(2) solid #111 !important; }
+      }
+      .day { padding: rem(16) rem(18) !important; height: rem(136) !important; text-align: left; text-indent: rem(2); }
+      .day-header { position: relative; padding: rem(20) 0 !important; font-size: rem(26) !important;
+          &::before { display: none !important; width: rem(98) !important;   }
+          &::after { bottom: rem(-3) !important; width: 100% !important; height: rem(2) !important;}
+      }
+  }
+}
+
+}
+

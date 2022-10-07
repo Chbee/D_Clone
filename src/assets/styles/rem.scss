@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+$max: 600px;
+$size: 16px;
+@media screen and (min-width: $max) {
+  html {
+    font-size: $size;
+  }
+}
+@for $i from 1 to 281 {
+  @media screen and (max-width: ( $max - ( 1px * $i ) )) {
+    html {
+      font-size: ($size - (0.038875 * $i));
+    }
+  }
+}

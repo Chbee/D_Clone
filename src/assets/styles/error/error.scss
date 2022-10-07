@@ -1,0 +1,17 @@
+@charset 'utf-8';
+
+.error-wrap { display: flex; min-height: rem(1080); justify-content: center; align-items: center; }
+.error-contents { width: rem(500); margin: 0 auto; padding-top: rem(120); text-align: center; @include svg($iconError); background-position: top center; }
+.error-title { font-weight: 500; font-size: rem(36); line-height: 1.3; color: #111; }
+.error-text { margin-top: rem(20); font-weight: 500; font-size: rem(16); line-height: 1.5; color: #888; }
+.error-btn { margin-top: rem(50); }
+
+
+// mobile 
+@include mobile {
+  .error-wrap { min-height: rem(1334); }
+  .error-contents { width: 100%; padding: rem(184) rem(30) 0 rem(30); background-size: rem(120) rem(120); }
+  .error-title { font-size: rem(60); line-height: 1.2; }
+  .error-text { margin-top: rem(40); font-size: rem(30); line-height: 1.4; }
+  .error-btn { margin-top: rem(100); }
+}

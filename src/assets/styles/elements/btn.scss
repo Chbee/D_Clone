@@ -1,0 +1,514 @@
+@charset "UTF-8";
+@include mobile {
+  .code-registration .field-area .btn-area{
+    button{
+      min-width: 0px;
+    }
+  }
+}
+button { font-family: 'Geogrotesque', 'YoonGothic', sans-serif; }
+/* button */
+.btn-area {
+  text-align: center;
+  button { 
+    display: inline-block; min-width: rem(190); height: rem(60); padding: 0 rem(10) 0;  text-align: center; letter-spacing: rem(-0.65); line-height: rem(48);
+    &.medium { height: rem(52); font-size: rem(15); line-height: rem(50); }
+    &.small { height: rem(48); font-size: rem(14); line-height: rem(46); }
+    &.smaller { min-width: 0; height: rem(40); font-size: rem(14); line-height: rem(38); }
+    &:disabled { cursor: default; }
+    &.primary { 
+      background: #111; color: #fff;
+      &:hover { background: #fff; border: 1px solid #111; color: #111; }
+      &:disabled { background: #eee; border: 1px solid #eee; color: #ccc; }
+      &.download { border: 1px solid #111;
+        //min-width: rem(123);
+        &::after { display: inline-block; width: rem(14); height: rem(14); margin-left: rem(5); @include svg($iconDownloadWhite); content: ""; vertical-align: middle; }
+        &:hover { background: #111; border: 1px solid #111; color: #fff; }
+      }
+      &.arrow {    
+        &::after { display: inline-block; margin-left: rem(5); content: ">"; color: #fff; }
+        &:hover { background: #fff; border: 1px solid #111; color: #111; 
+          &::after { color: #111; }
+        }
+      }
+    }
+    &.secondary { 
+      border: 1px solid #111; color: #111;
+      &:hover { background-color: #111; color: #fff; opacity: .5; }
+      &:disabled { background-color: #f7f7f7; border: 1px solid #f7f7f7; color: #ccc; font-weight: 300;
+        &:hover { opacity: 1; }
+      }
+      &.more {
+        &:hover { background-color: #fff; border: 1px solid #111; color: #111; opacity: 1; }
+        &::after { display: inline-block; width: rem(15); height: rem(15); margin-left: rem(10); @include svg($btnMore); content: ""; vertical-align: middle; }
+      }
+      &.go-page {
+        &:hover { background-color: #fff; color: #111; opacity: 1; }
+        &::after { display: inline-block; width: rem(12); height: rem(12); margin-left: rem(5); @include svg($iconLink); content: ""; }
+      }
+      &.new-page-link{ 
+        &::after { display: inline-block; width: rem(12); height: rem(12); margin-left: rem(5); @include svg($blankLinkBlack); content: ""; }
+        &:hover {
+          opacity: 1;
+          &::after { @include svg($blankLink); }
+        }
+      }
+      &.download {
+        &:hover { background-color: #fff; border: 1px solid #111; color: #111; }
+        &::after { display: inline-block; width: rem(15); height: rem(15); margin-left: rem(10); @include svg($btnDownload); content: ""; vertical-align: middle; }
+      }
+      &.info {
+        &::after { display: inline-block; width: rem(14); height: rem(14); margin-left: rem(5); @include svg($iconInfo); content: ''; }
+        &:hover { background-color: #fff; color: #111; opacity: 1; }
+      }
+      &.light{ border: solid 1px #ddd; }
+      &.like {
+        font-size: 0;
+        &:hover { background-color: #fff; color: #111; opacity: 1; }
+        &::after { display: inline-block; width: rem(20); height: rem(18); @include svg($shopLike); background-size: contain; content: ''; vertical-align: middle; }
+      }
+      &.share {
+        font-size: 0;
+        &:hover { background-color: #fff; color: #111; opacity: 1; }
+        &::after { display: inline-block; width: rem(20); height: rem(18); @include svg($share); background-size: contain; content: ''; vertical-align: middle; }
+      }
+      &.cart {
+        &:hover { background-color: #fff; color: #111; opacity: 1; }
+        &::after { display: inline-block; width: rem(20); height: rem(18); margin-left: rem(7); @include svg($shopCart); background-size: contain; content: ''; vertical-align: middle; }
+      }
+      &.deduct { line-height: 1; font-size: rem(11); color: #666; height: auto; padding: rem(8); min-width: auto; }
+    }    
+    &.btn-search { min-width: 0; width: rem(60); height: rem(60); @include svg($search); font-size: 0; color: transparent; }
+    &.btn-share { min-width: auto; width: rem(32); height: rem(32); font-size: 0; @include svg($share); background-size: 100% auto; }
+    &.btn-ticketing { width: rem(299); margin-left: rem(47); }
+    &.btn-notice {
+      text-align: left; color: #666;
+      &::after { display: inline-block; position: relative; width: rem(18); height: rem(18); margin: 0 0 0 rem(7); @include svg($iconQuestionGray); content: ''; vertical-align: middle; }
+    }
+    &.btn-notice-black {
+      min-width: 0; height: auto; line-height: inherit; text-align: left; color: #666;
+      &::after { display: inline-block; position: relative; width: rem(22); height: rem(22); margin: 0 0 0 rem(7); @include svg($iconQuestion); content: ''; vertical-align: middle; }
+    }
+  }
+  a { display: inline-block; text-decoration: underline; color: #222; line-height: rem(19.2); letter-spacing: rem(-.4);
+    &:hover { text-decoration: underline; }
+    &[class^=icon] { text-decoration: none;
+      &::after { display: inline-block; width: rem(12); height: rem(12); margin-left: rem(5); content:""; }
+      &.new-page-link::after { @include svg($blankLinkBlack); }
+      &.popup-link::after { @include svg($popLinkBlack); }
+      &.go-page::after { @include svg($iconLink); }
+    }
+    &.gray { color: #666; }
+  }
+  &.btn-reservation { 
+    width: 100%; 
+    button { width: 100%; }
+  }
+  &.like-on button.like {
+    border-color: #fd511d;
+    &::after { @include svg($shopLikeActive); background-size: contain; }
+  }
+}
+.full .btn-area .full { width: 100%; }
+.pin-area .btn-area button { min-width: 100%; }
+.btn-area-wrap .btn-area button { min-width: 100%; }
+.layer-dimmed .layer .layer-footer button { min-width: 100%; }
+.btn-group .btn-area button { min-width: 100%; }
+.btn-area-left .btn-area { text-align: left; }
+.status .btn-area { 
+  margin-top: rem(12); 
+  a.icon.go-page { 
+    min-width: rem(120); max-width: 100%; height: rem(48); font-size: rem(14); border: 1px solid #111; line-height: rem(48);
+  }
+}
+.sub-title-area {
+  .right { 
+    .btn-area { display: inline-block;
+      & + .btn-area { margin-left: rem(12); }
+      button { min-width: rem(120); }
+    }
+  }
+}
+table td {
+  .btn-area {
+    display: inline-block;
+    button { min-width: 0; }
+  }
+}
+.mypage-area {
+  .search-form .btn-search { height: rem(48); width: rem(48); }
+  .regist-pin-area .btn-area { display: inline-block; margin-left: rem(28); }
+  .search-area .btn-area {
+    button { height: rem(48); }
+  }
+}
+.btn-group-area {
+  .btn-area {
+    display: inline-block; 
+    & + .btn-area { margin-left: rem(18); }
+  }
+}
+// main
+.main { 
+  .btn-group {
+    margin-top: rem(20); flex: 1;
+    .btn-area{ margin-right: rem(28); }
+    button {   // 2022.03.10 DCJ-T5206 관련 a 태그 삭제 / 2022.03.23 DCJ-T5563관련 line-height: rem(60); 삭제
+      width: rem(190); height: rem(60); border: rem(2) solid #fff; font-weight: 600; display: inline-block; vertical-align: middle;
+      text-decoration: none; 
+      &.primary { background: transparent; color: #fff; 
+        &:hover { background: transparent; color: #fff; border: rem(2) solid #fff; }
+      }
+      &.secondary { background: #fff; color: #111; 
+        &:hover { background: #fff; color: #111; opacity: 1; }
+      }
+    }
+  }
+  .pagination-progress { 
+    .btn-area {
+      position: absolute; right: rem(-20); top: rem(-4);
+      button { display: inline-block; min-width: 0; width: rem(10); height: rem(10); @include svg($iconPlay); font-size: 0; color: transparent; vertical-align: top; }
+      &.play button { @include svg($iconPause); }
+    }
+  }
+}
+
+// shop
+.visual-swiper-area {
+  .btn-area {
+    position: absolute; left: rem(1580); bottom: 0; z-index: 5;
+    &.play button { @include svg($iconShopPlay); }
+    button { width: rem(14); min-width: 0; height: rem(14); @include svg($iconShopPause); font-size: 0; color: transparent; }
+  }
+}
+.field-area{
+  &.between{
+    .btn-area { 
+      display: inline-block; 
+      button {line-height:1} /*en을 위한 처리, 한국어일때는 한줄이므로 line-height 영향 없음확인 처리함 후에 문제가 된다면 따로 변경하세요*/
+    }
+  }
+  .btn-area{
+    button{ width: 100%; }
+  }
+}
+.period-area .btn-area { display: inline-block; }
+
+//event
+.btn-intro-group {
+  .btn-area button.secondary { width: rem(174); min-width: auto; }
+}
+.btn-event-group {
+  .btn-area { 
+    display: inline-block; width: rem(620); margin: 0 rem(10);
+    button { width: 100%; }
+  }
+}
+.btn-float-area {
+  .btn-area {
+    display: inline-block;
+    button { 
+      width: rem(626); box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.24); 
+      &.secondary { background: #fff; }
+    }
+    + .btn-area { margin-left: rem(28); }
+  }
+}
+.btn-program-visual {
+  .btn-area {
+    .primary { 
+      background: #fff; color: #111;
+      &:hover { border-color: #fff; }
+    }
+    .secondary { 
+      position: relative; border-color: #fff; color: #fff; background: transparent;
+      &:hover { background:transparent; opacity: 1; }
+    }
+  }
+}
+
+.certify-area {
+  .btn-area {
+    margin-left: rem(12);
+    & + .btn-area { margin-left: rem(8); }
+    button { min-width: 0; width: 100%; line-height:1}
+  }
+}
+
+//exhibition
+.btn-exhibition-list {
+  .btn-area button { width: rem(626); }
+}
+.btn-exhibition-ticketing {
+  .btn-area button { width: rem(299); }
+}
+
+//qna
+.qna-list .tbody .btn-area button { min-width: rem(109); height: rem(48); }
+
+//myinfo
+.myinfo {
+  .btn-bottom {
+    &.one .btn-area button { width: rem(299); }
+  }
+  .members-card-list .btn-area button { width: rem(100); min-width: auto; }
+}
+
+//mypage
+.add-file-area .btn-area .btn-delete { min-width: 0; width: rem(23); height: rem(23); position: relative; background: #666; z-index: 3; vertical-align: top; 
+  &::before, &::after { width: rem(16); height: rem(2); position: absolute; background: #fff; content: ''; }
+  &::before { top: rem(10); left: rem(5); transform: rotate(135deg); }
+  &::after { top: rem(10); left: rem(5); transform: rotate(-135deg); }
+}
+.add-file-area .btn-area .add-file { min-width: 0; width: rem(110); height: rem(110); position: relative; background: #666;
+  &::before, &::after { width: rem(16); height: rem(2); margin: 0 0 0 rem(-8); position: absolute; left: 50%; top: 50%; background: #fff; content: ''; }
+  &::before { transform: rotate(0); }
+  &::after { transform: rotate(90deg); }
+}
+.search-area {
+  .btn-area {
+    button { min-width: 0; width: rem(190); height: rem(48); }
+  }
+  &.find { 
+    .btn-area {
+      button {width: rem(60); }
+    }
+  }
+  .search-form .btn-area button { width: 100%; }
+}
+
+.round-list li .soldout .btn-area button { width: rem(120); min-width: auto; padding: 0; font-size: rem(14); }
+
+.error-btn .btn-area button { width: rem(408); }
+
+.layer-dimmed.share-pop .share-url .btn-area button { width: rem(81); min-width: auto; height: rem(36); border: 1px solid #111; font-size: rem(13); line-height: rem(36); }
+
+
+// mobile 
+@include mobile {
+  /* button */
+  .btn-area {
+    button { 
+      min-width: rem(330); height: rem(100); font-size: rem(26); letter-spacing: rem(-0.65); -webkit-tap-highlight-color : transparent !important;
+      &.full { width: 100% !important; }
+      &.medium { height: rem(90); font-size: rem(24); }
+      &.small { height: rem(80); font-size: rem(22); }
+      &.smaller { height: rem(60); font-size: rem(22); line-height: rem(36); }
+      &:disabled { cursor: default; }
+      &.primary { 
+        &:hover { border: rem(2) solid #111; }
+        &:disabled { border: rem(2) solid #eee; }
+        &.download { height: rem(90); font-size: rem(24);
+          &::after { width: rem(26); height: rem(26); margin-left: rem(20); @include svg($btnDownloadWhite); background-size: contain; }
+          &.smaller { height: rem(60); }
+          &:hover { border: rem(2) solid #111; }
+        }
+        &.buy { width: 100%; min-width: 0; height: rem(80);
+          &:hover { background: #111; color: #fff; }
+          &:disabled {
+            border: 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;
+            &:hover { background: #f2f2f2; color: #ccc; }
+          }
+        }
+      }
+      &.secondary { border: rem(2) solid #111; background: #fff;
+        &:disabled { border: rem(2) solid #eee; }
+        &.more { height: rem(90);
+          &::after { width: rem(26); height: rem(26); margin-left: rem(20); @include svg($moBtnMore); background-size: contain; }
+        }
+        &.download { height: rem(90);
+          &::after { width: rem(26); height: rem(26); margin-left: rem(20); @include svg($btnDownload); background-size: contain; }
+        }
+        &.go-page {
+          &::after { width: rem(24); height: rem(24); margin: rem(6) 0 0 rem(16); @include svg($iconLink); content: ""; vertical-align: top; }
+        }
+        &.cart { border: 1px solid #111; }
+        &.new-page-link{ 
+          &::after { width: rem(24); height: rem(24); margin-left: rem(16); @include svg($blankLinkBlack); background-size: contain; content: ""; }
+          &:hover {
+            opacity: 1;
+            &::after { @include svg($moBlankLink); background-size: contain; }
+          }
+        }
+        &.share { 
+          &.shop { width: 100%; min-width: 0; height: rem(80); font-size: 0; color: transparent; border: 1px solid #111; border-right: 0;
+            &::after { display: inline-block; width: rem(36); height: rem(36); margin-left: 0; @include svg($share); background-size: contain; content: ''; vertical-align: middle; }
+            &:hover { background: #fff; opacity: 1; }
+          }
+        }
+        &.like {
+          &.shop { width: 100%; min-width: 0; height: rem(80); font-size: 0; color: transparent; border: 1px solid #111; border-right: 0; border-left: 0;
+            &::after { width: rem(36); height: rem(36); margin-left: 0; @include svg($shopLike); background-size: contain; }
+          }
+        }
+        &.cart {
+          &.shop { width: 100%; min-width: 0; height: rem(80);
+            &::after { display: none; }
+          }
+        }
+        &.deduct { 
+          height: rem(38); border: 1px solid #666; font-size: rem(24); letter-spacing: rem(-.6); color: #666; white-space: nowrap;
+          &:hover { color: #fff; }
+        }
+        // &.go-page::after { display: none; }
+      }  
+      &.btn-search { min-width: 0; width: rem(48); height: rem(100); @include svg($moSearchBlack); font-size: 0; color: transparent; background-size: contain; }  
+      &.full { min-width: 100% !important; }
+      &.btn-ticketing { width: rem(299); height: rem(60); font-size: rem(24); }
+      &.btn-notice {
+        height: auto;
+        &::after { width: rem(30); height: rem(30); margin: rem(-5) 0 0 rem(10); @include svg($iconQuestionGray); background-size: contain; }
+      }
+    }
+    a { color: #222; font-size: rem(28); line-height: rem(33.6); letter-spacing: rem(-.7); text-decoration: underline; -webkit-tap-highlight-color : transparent !important;
+      &[class^=icon] {
+        &::after { width: rem(24); height: rem(24); margin-left: rem(13); }
+        &.new-page-link::after { @include svg($moBlankLinkBlack); background-size: contain; }
+        &.popup-link::after { @include svg($moPopLinkBlack); background-size: contain; }
+        &.go-page::after { @include svg($moIconLink); background-size: contain; }
+      }
+      &.gray { font-size: rem(32); text-decoration: none; } 
+    }
+    &.btn-like.on button.secondary.like.shop {
+      &::after { @include svg($shopLikeActive); background-size: contain; }
+    }
+  }
+  .full .btn-area { width: 100%; }
+  .form-area .btn-area-wrap button { min-width: 100%; }
+  .mypage-area { 
+    .search-form {
+      .btn-area {
+        margin-top: rem(-20); top: 50%; right: rem(20);
+        .btn-search { height: rem(40); width: rem(40); }
+      }
+    }
+    .search-area {
+      .btn-area {
+        button { min-width: 0; width: rem(138); height: rem(100); font-size: rem(30); }
+      }
+    }
+    .postcode-area {
+      .btn-area { width: rem(40); height: rem(40);
+        margin-top: rem(-20); top: 50%; right: rem(20);
+        .btn-search { width: rem(40); height: rem(40); }
+      }
+    }
+  } 
+  .sub-title-area {
+    .right { 
+      .btn-area { 
+        .small { height: rem(60); padding: 0 rem(20); }
+      }
+    }
+  }
+  //mypage
+  .add-file-area .btn-area .btn-delete { width: rem(40); height: rem(40);
+    &::before, &::after { width: rem(26); height: rem(4); margin: rem(-2) 0 0 rem(-13); top: 50%; left: 50%; }
+    &::before { transform: rotate(135deg); }
+    &::after { transform: rotate(-135deg); }
+  }
+  .add-file-area .btn-area .add-file { width: rem(210); height: rem(210); background: #666;
+    &::before, &::after { width: rem(26); height: rem(4); margin: rem(-2) 0 0 rem(-13); background: #fff; content: ''; }
+    &::before { transform: rotate(0); }
+    &::after { transform: rotate(90deg); }
+  }
+  .review-complete .btn-group .btn-area button { height: rem(60); }
+  .inquire-status .btn-group .btn-area button { height: rem(60); }
+  .restock-list .btn-group .btn-area button { height: rem(60); }
+  // .right .btn-area button { height: rem(60); padding: 0 rem(20);  border: rem(2) solid #111; } 혹시 이거 사용하시는 분 사이드 디펙 확인 부탁드려요.
+  .right .btn-area.btn-reservation .btn-payment { height: rem(140); font-size: rem(40); }
+
+  // main
+  .main { 
+    .btn-group {
+      margin-top: rem(70);
+      .btn-area + .btn-area { margin-left: rem(30); }
+      button {  // 2022.03.10 DCJ-T5206 관련 a 태그 삭제 / 2022.03.23 DCJ-T5563 관련 line-height: rem(100); 삭제
+        height: rem(100);  font-size: rem(26); letter-spacing: rem(-.65); // 2022.03.23 DCJ-T5563 관련 width:100% 제거
+        &.secondary { background: #fff; color: #111; border: 0;
+          &:hover { background: #fff; color: #111; opacity: 1; }
+        }
+      }
+    }
+    .pagination-progress { 
+      .btn-area {
+        right: rem(-28); top: rem(-7);
+        button { width: rem(12); height: rem(18); @include svg($iconPlay); background-size: cover; }
+        &.play button { @include svg($moIconPause); }
+      }
+    }
+  }
+  .purchase-list .btn-area a[class^=icon].go-page::after { width: rem(12); height: rem(12); margin-left: rem(5); @include svg($iconLinkS); vertical-align: middle; background-size: contain; }
+
+  table td {
+    .btn-area {
+      display: block; width: 100%;
+      button { min-width: 100%; }
+    }
+  }
+
+  //event
+  .btn-intro-group {
+    .btn-area button.secondary { width: 100%; min-width: auto; }
+  }
+  .btn-event-group {
+    .btn-area { width: 100%; margin: rem(15) 0; }
+    &.space { padding: 0 rem(30); }
+  }
+  .btn-float-area {
+    .btn-area { 
+      width: 100%;
+      button { width: 100%; }
+      + .btn-area { margin: rem(30) 0 0 0; }
+    }
+  }
+  .btn-program-visual, .program-view-info {
+    .btn-area button { width: 100%; }
+  }
+  .conference-container .conference-list ul li .btn-info-group .btn-area:nth-child(3) button { width: 100%; }
+  .pop-event-info .event-info .info-area .btn-info button { width: 100%; }
+
+  //exhibition
+  .btn-exhibition-current {
+    .btn-area button { width: rem(300); }
+  }
+  .btn-exhibition-list {
+    .btn-area {
+      padding: 0 rem(30); 
+      button { width: 100%; }
+    }
+  }
+  .btn-exhibition-ticketing {
+    .btn-area button { width: rem(330); }
+  }
+  // shop
+  .visual-swiper-area .btn-area { display: none; }
+  
+  //qna
+  .qna-list .tbody .btn-area button { min-width: rem(120); height: rem(60); }
+
+   //myinfo
+   .myinfo {
+    .btn-bottom {
+      .btn-area {
+        width: 48%;
+        button { width: 100%; }
+        + .btn-area { margin-left: rem(4); }
+      }
+      &.one {
+        width: 100%;
+        .btn-area button { width: 100%; }
+      }
+    }
+    .members-card-list .btn-area button { width: 100%; }
+  }
+ 
+  .error-btn .btn-area button { width: 100%; }
+
+  //ticket
+  .discount-offer .list-offer .btn-area button { min-width: auto; width: rem(210); }
+  .ticket-registration .btn-area button { min-width: auto; width: rem(210); }
+  .round-list li .soldout .btn-area button { width: rem(180); height: rem(80); font-size: rem(22); }
+
+  .layer-dimmed.share-pop .share-url .btn-area button { width: rem(120); height: rem(70); line-height: rem(70); }
+}
