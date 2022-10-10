@@ -1,0 +1,172 @@
+{
+    "Login": "Login",
+    "Calendar": "Calendar",
+    "Main": "Main",
+    "Join": {
+        "Main": "Join",
+        "JoinInfo": "JoinInfo",
+        "JoinTerms": "JoinTerms",
+        "JoinForms": "JoinForms",
+        "JoinComplete": "JoinComplete",
+        "FindIdPw": "FindIdPw",
+        "FindComplete": "FindComplete"
+    },
+    "Exhibition": {
+        "Main": "ExhibitionPage",
+        "List": {
+            "Current": "CurrentExhibitionList",
+            "Past": "PastExhibitionList",
+            "Next": "NextExhibitionList"
+        },
+        "Info": {
+            "Current": "CurrentExhibitionInfo",
+            "Past": "PastExhibitionInfo",
+            "Preview": "PreviewExhibitionInfo"
+        }
+    },
+    "Ticket": {
+        "Main": "TicketPage",
+        "List": {
+            "Main": "TicketListPage",
+            "Exhibition": "TicketExhibitionList",
+            "Education": "TicketEducationList",
+            "Event": "TicketEventList"
+        },
+        "Reservation": "TicketReservationPage",
+        "Preview": "TicketPreviewPage",
+        "GroupReservation": "TicketGroupReservationPage",
+        "Payment": "TicketPaymentPage",
+        "Complete": "TicketCompletePage",
+        "Waiting": "Waiting"
+    },
+    "MyPage": {
+        "Main": "MyPageMain",
+        "MyTicketsHome": "MyTicketsHome",
+        "MyTickets": "MyTickets",
+        "MyTicketsCancel": "MyTicketsCancel",
+        "MyGiveGiftList": "MyGiveGiftList",
+        "MyTicketsDetail": "MyTicketsDetail",
+        "MyCoupons": "MyCoupons",
+        "MyScheduleChange": "MyScheduleChange",
+        "REMNANT": "Remnant",
+        "MyInfo": {
+            "Info": "Info",
+            "MyChange": "MyChange",
+            "Withdrawal": "Withdrawal",
+            "WithdrawalComplete": "WithdrawalComplete",
+            "WithdrawalTerms": "WithdrawalTerms",
+            "WithdrawalUnable": "WithdrawalUnable",
+            "MembersLevel": "MembersLevel"
+        },
+        "MyReview": {
+            "ReviewList": "ReviewList",
+            "Writable": "writable",
+            "Written": "written"
+        },
+        "AppMyPage": "appMyPage",
+        "AppMyPageMain": "AppMyPageMain",
+        "AppVersion": "AppVersion",
+        "AppPush": "AppPush",
+        "AppOpenLicense": "AppOpenLicensc"
+    },
+    "Events": {
+        "Festival": {
+            "Home": "FestivalHome",
+            "Winner": "FestivalWinner",
+            "Before": "FestivalBefore",
+            "Creator": "Creator",
+            "ScholarshipVote": "ScholarshipVote",
+            "ApplyBefore": "FestivalApplyBefore",
+            "Apply": "Apply",
+            "ResearchBefore": "FestivalResearchBefore",
+            "Innovator": "Innovator",
+            "ResearchVote": "ResearchVote",
+            "ScholarshipWinner": "ScholarshipWinner",
+            "ConferenceVote": "ConferenceVote",
+            "ConferenceDeadline": "ConferenceDeadline",
+            "Conference": "Conference",
+            "Archive": "Archive",
+            "Preview": "PreviewFestivalView"
+        },
+        "Program": {
+            "Home": "ProgramHome",
+            "View": "ProgramView",
+            "Preview": "PreviewProgramView"
+        }
+    },
+    "Learn": {
+        "EducationList": {
+            "Home": "EducationHome",
+            "Infant": "EducationInfant",
+            "Child": "EducationChild",
+            "Teenager": "EducationTeenager",
+            "Colleger": "EducationColleger",
+            "Adult": "EducationAdult",
+            "Teacher": "EducationTeacher",
+            "Commentary": "EducationCommentary"
+        },
+        "EducationView": "EducationView",
+        "Preview": "PreviewEducationView"
+    },
+    "Shop": {
+        "Main": "ShopMain",
+        "Search": "ShopSearch",
+        "CategoryList": "CategoryList",
+        "CategoryDetail": "CategoryDetail",
+        "SpecialExhibitList": "SpecialExhibitList"
+    },
+    "Search": {
+        "All": "SearchAll",
+        "Exhibition": "SearchExhibition",
+        "Learn": "SearchLearn",
+        "Event": "SearchEvent"
+    },
+    "Guide": {
+        "Page": "guidePage",
+        "Main": "guideMain",
+        "Select": "guideSelect",
+        "List": "guideList",
+        "Play": "guidePlay",
+        "QrPlay": "guideQrPlay",
+        "QrNotAlow": "guideQrNotAlow",
+        "Course": "guideCourse"
+    },
+    "Alarm": "Alarm",
+    "Faq": {
+        "Category": {
+            "All": "FaqAll",
+            "Exhibition": "FaqExhibition",
+            "Member": "FaqMember",
+            "Book": "FaqBook",
+            "Shop": "FaqShop",
+            "Location": "FaqLocation"
+        },
+        "FaqInquireComplete": "FaqInquireComplete",
+        "BulkComplete": "BulkComplete"
+    },
+    "Notice": {
+        "Category": {
+            "All": "NoticeAll",
+            "DMuseum": "NoticeDMuseum",
+            "DaelimMuseum": "NoticeDaelimMuseum",
+            "DProjectSpace": "NoticeDProjectSpace",
+            "Shop": "NoticeShop"
+        }
+    },
+    "Museum": {
+        "Introduce": "Museum",
+        "Notice": "MuseumNotice",
+        "NoticeDetail": "MuseumNoticeView",
+        "Employment": "Employment",
+        "EmploymentDetail": "EmploymentDetail"
+    },
+    "Footer": {
+        "Terms": "FooterTerms",
+        "Privacy": "FooterPrivacy",
+        "Media": "FooterMedia"
+    },
+    "Subscriber": {
+        "Unsubscribe": "Unsubscribe"
+    },
+    "AppDownLoad": "appDownLoad"
+}

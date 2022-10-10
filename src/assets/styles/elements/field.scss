@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+.input-area {
+  display: inline-block; width: 100%; position: relative; vertical-align: top;
+  input:not(checkbox):not(radio) { width: 100%; height: rem(60); padding: rem(16) rem(19); border: 1px solid #ddd; background: #fff; color: #111; line-height: rem(19.2); letter-spacing: rem(-.4); font-family: 'Geogrotesque', 'YoonGothic', sans-serif;
+    &::placeholder { color: #999; font-weight: 300; }
+    &:disabled { background: #eee; color: #111; }
+    &.error { border-color: #da2a21; }
+    &[type="date"] {
+      padding-right: rem(50); position:relative; letter-spacing: rem(-.5); font-family: 'Geogrotesque';
+      &::placeholder { letter-spacing: rem(-.5); }
+      &::-webkit-calendar-picker-indicator { width: rem(24); height: rem(24); margin-top: rem(-14); position: absolute; top: 50%; right: rem(20); color: transparent; @include svg($calendar); background-position: right 1px center; background-size: contain; cursor: pointer; }
+      &::-webkit-inner-spin-button, &::-webkit-clear-button { display: block; }
+    }
+  }
+  .error-msg { margin-top: rem(10); position: relative; padding-left: rem(32); color: #da2a21; font-size: rem(15); line-height: rem(22); letter-spacing: rem(-.38);
+    &::before { position: absolute; left: 0; top: 0; width: rem(22); height: rem(22); @include svg($moIconError); content: ""; background-size: contain; }
+  }
+  .complete-msg { margin-top: rem(10); position: relative; color: #111; font-size: rem(15); line-height: rem(22); letter-spacing: rem(-.38); }
+  &.algin-right input:not(checkbox):not(radio) { text-align: right; }
+  .unit { padding-right: rem(24); position: absolute; right: rem(10); top: 0; line-height: rem(60); color: #111; }
+  .letters-count { padding-right: rem(24); position: absolute; right: 0; top: 0; line-height: rem(60); color: #ddd; }
+
+  &.date-area {
+    input[type="text"] { 
+      padding-right: rem(50); position:relative; letter-spacing: rem(-.5); font-family: 'Geogrotesque'; 
+      &::placeholder { letter-spacing: rem(-.5); }
+    }
+    .date { 
+      width: rem(24); height: rem(24); @include svg($calendar); font-size: 0;
+      background-position: right 1px center; background-size: contain; cursor: pointer; 
+      position: absolute; top: rem(12); right: rem(20); 
+    }
+  }
+  .file-close-btn{ position:absolute; right: rem(20); top: 50%; margin-top: rem(-10); content: ''; display: block; width: rem(20); height: rem(20); background: url('~@images/join/round-close-btn.png') no-repeat; background-position: center; background-size: contain; }
+}
+.search-area .search-form  input { padding-right: rem(60); border: none; border-bottom: rem(2) solid #000; }
+.mypage-area .search-area .search-form input { height: rem(48); border-bottom: 1px solid #000; }
+.normal-area .field input { height: 100%; }
+.date-group {
+  .input-area {
+    width: calc(50% - 0.9375rem);
+    input[type="date"] { width: 100%; height: rem(48); }
+    input.input-date { width: 100%; height: rem(48); }
+  }
+}
+.postcode-area {
+  .search-area { 
+    input { border: 0; border-bottom: rem(2) solid #111; }
+  }
+}
+
+.count-control .input-area { 
+  input { height: rem(48); padding: 0; line-height: rem(46); text-align: center; border-left: 0; border-right: 0; }
+}
+
+.layer-dimmed.share-pop .share-url .input-area input { width: rem(256); height: rem(36); }
+
+.email-area .input-area, .phone-number-area .input-area {
+  input { padding: rem(16); }
+  &.error-area { padding-bottom: rem(32); }
+  .error-msg { position: absolute; left: 0; bottom: 0; white-space: nowrap; }
+}
+
+// mobile 
+@include mobile {
+  .input-area {
+    input:not(checkbox):not(radio) { height: rem(100); padding: rem(33) rem(28); border: rem(2) solid #ddd; font-size: rem(28); line-height: rem(33.6); letter-spacing: rem(-.7); 
+      &[type="date"] {
+        padding-right: rem(50); position:relative; letter-spacing: rem(-.5); font-family: 'Geogrotesque';
+        &::-webkit-calendar-picker-indicator { width: rem(40); height: rem(40); margin-top: rem(-20); position: absolute; top: 50%; right: rem(20); color: transparent; @include svg($mobileCalendar); background-position: right 1px center; background-size: contain; cursor: pointer; }
+        &::-webkit-inner-spin-button, &::-webkit-clear-button { display: block; }
+      }
+      &.date {
+        padding-right: rem(50); position:relative; letter-spacing: rem(-.5); font-family: 'Geogrotesque';
+        &::-webkit-calendar-picker-indicator { width: rem(40); height: rem(40); margin-top: rem(-20); position: absolute; top: 50%; right: rem(20); color: transparent; @include svg($mobileCalendar); background-position: right 1px center; background-size: contain; cursor: pointer; }
+        &::-webkit-inner-spin-button, &::-webkit-clear-button { display: block; }
+      }
+    }
+    .error-msg { margin-top: rem(20); padding-left: rem(42); font-size: rem(26); line-height: rem(30); letter-spacing: rem(-.65);
+      &::before { width: rem(30); height: rem(30); @include svg($moIconError); background-size: contain;}
+    }
+    .complete-msg { margin-top: rem(20); padding-left: 0; font-size: rem(24); line-height: rem(30); letter-spacing: rem(-.65); }
+    .unit { padding-right: rem(24); font-size: rem(30); line-height: rem(100); letter-spacing: rem(-.9); }
+    .letters-count { padding-right: rem(24); font-size: rem(30); line-height: rem(100); letter-spacing: rem(-.9); }
+    &.h80 {
+      input:not(checkbox):not(radio) { height: rem(80); }
+    }
+    &.date-area {
+      input[type="text"] { padding-right: rem(50); position:relative; letter-spacing: rem(-.5); font-family: 'Geogrotesque'; }
+      .date {
+        width: rem(40); height: rem(40); margin-top: 0; position: absolute; top: rem(30); right: rem(20); color: transparent; @include svg($mobileCalendar); background-position: right 1px center; background-size: contain; cursor: pointer;
+      }
+    }
+    .file-close-btn{ margin-top: rem(-20);  width: rem(40); height: rem(40); }
+  }
+  .date-group {
+    .input-area {
+      width: calc(50% - 1.395rem);
+      input[type="date"] { height: rem(100); font-size: rem(24); letter-spacing: rem(-1); }
+      input.input-date { height: rem(100); font-size: rem(24); letter-spacing: rem(-1); }
+    }
+  }
+  .search-area .search-form .input-area { width: 100% !important; }
+  .pin-area .input-area-wrap .input-area input { border: 0; }
+  .mypage-area .search-area .search-form input { height: rem(100); border: rem(2) solid #ddd; }
+  .count-control .input-area { 
+    input { width: rem(130); height: rem(100); padding: 0; line-height: rem(98); }
+  }
+  .layer-dimmed.share-pop .share-url .input-area input { width: rem(306); height: rem(60); font-size: rem(24); }
+  .email-area .input-area, .phone-number-area .input-area {
+    &.error-area { padding-bottom: rem(37); }
+  }
+}

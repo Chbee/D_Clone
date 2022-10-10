@@ -1,0 +1,197 @@
+@charset 'utf-8';
+
+.layer-dimmed {
+  position: fixed; width: 100%; height: 100vh; background: rgba(#000,0.7); top: 0; left: 0; overflow: hidden; z-index: 1000;
+  .layer {
+    overflow: hidden; position: fixed; top: 50%; left: 50%; background: #fff;
+    .layer-header {
+      position: relative; width: 100%; height:rem(60); padding: rem(17) rem(70) rem(15) rem(28); background: #000; color: #fff; font-weight: 400; font-size: rem(24); line-height: 1.21; letter-spacing: rem(-0.6);
+      .layer-close { position: absolute; top: 0; right: 0; width: rem(60); height: rem(60); text-indent: rem(-9999); @include svg($popClose);  background-size: rem(22); }
+    }
+    .layer-body {
+      overflow-y: auto; max-height: calc(100% - 3.75rem);  padding: rem(40) rem(30);
+      .info-txt{ display: block; margin-top: rem(40); font-size: rem(16); font-weight: 300; font-stretch: normal; line-height: 1.88; letter-spacing: rem(-0.4); color: #666; }
+
+      .responsive-area { padding-bottom: 0; }
+    }
+    .layer-footer{
+      // padding: rem(20) rem(30); height: rem(100); position: relative; z-index: 0; text-align: center; border-top: 1px solid #ddd;
+      padding: 0 rem(30) rem(40); text-align: center;
+      .btn-area{
+        margin-top: 0;
+        & + .btn-area { margin-left: rem(28);}
+        display: inline-block;  font-weight: 300; line-height: 1.2; letter-spacing: rem(-0.38); color: #fff; font-size: rem(15);
+      }
+      padding-bottom: rem(40); position: relative; z-index: 0;
+      & > div{ display: flex; flex-direction: row; justify-content: space-around;
+        > * { flex: 1;}
+      }
+    }
+  }
+  &.is-footer {
+    .layer {
+      padding-bottom: rem(130);
+      // .layer-body { padding-bottom: 0; max-height: 100%; overflow: hidden; } 이부분 확인 부탁드려요
+      .layer-footer { position: absolute; bottom: 0; left: 0; width: 100%; }
+      &.main-pop {
+        padding-bottom: 0;
+        .layer-header { position: absolute; top: 0; left: 0; right: 0; background: transparent; z-index: 10; }
+        .layer-body { padding: 0 0 rem(60); overflow: hidden; }
+        .layer-footer { padding: 0;
+          > div { justify-content: flex-start;
+            > .btn-area { flex: 1; margin: 0; }
+          }
+        }
+      }
+    }
+  }
+  &.alert-pop {
+    z-index: 1001;
+    .layer {
+      width: rem(408); padding: 0 rem(30) rem(40) rem(30); top: 10% !important; margin-top: 0 !important; top:rem(300) !important;
+      .layer-header {
+        padding: rem(18) 0; font-size: rem(20); font-weight: 300; line-height: 1.2; color: #111; letter-spacing: rem(-0.5); background: #fff; box-shadow: inset 0px -1px 0 0 #ddd;
+        .layer-close { display: none; }
+      }
+      .layer-body {
+        display: flex; align-items: center; justify-content: center; min-height: calc( 100% - 6.25rem ); padding: rem(30) 0;
+        .comment {
+          display: inline-block; font-size: rem(16); font-weight: 500; line-height: 1.42; letter-spacing: rem(-0.6); text-align: center;
+        }
+      }
+      .layer-footer{
+        position: static; padding: 0;
+        .btn-area{ padding: 0; }
+      }
+    }
+  }
+  // &.footerbar {
+    // .layer-body { max-height: calc(100% - 10rem); }
+  // }
+  &.program-letter .layer .layer-body { overflow-x: visible; overflow-y: auto; }
+  &.share-pop {
+    .layer { padding: 0 rem(30); }
+    .layer-header {
+      padding: rem(17) 0; border-bottom: 1px solid #ddd; font-size: rem(20); color: #111; background: #fff;
+      .layer-close { right: rem(-18); @include svg($popCloseDark);  background-size: rem(22); }
+    }
+    .layer-body { overflow: hidden; padding: 0; }
+    .share-list {
+      padding: rem(32) 0 rem(40) 0; font-size: 0; text-align: center;
+      li {
+        display: inline-block; margin: 0 rem(15);
+        a { display: inline-block; width: rem(64); }
+      }
+    }
+    .share-url { display: flex; flex-wrap: nowrap; }
+  }
+  &.gift-pop {
+    .layer-body {
+      padding-bottom: 0;
+    }
+  }
+  .img-pop {
+    .layer-body { padding: 0;
+      &::-webkit-scrollbar-thumb{ height: 10%;
+        background-color: rgba(0,0,0,0.7); }
+      &::-webkit-scrollbar-track{ background: transparent; margin-right: rem(5); }
+      &::-webkit-scrollbar{ width: rem(6); background: transparent; }
+      img { width: 100%; margin-bottom: rem(-3); }
+    }
+  }
+  .video-pop {
+    .layer-body { height: 100%; padding: 0; overflow: hidden; background: #000;
+      video { width: 100%;  }
+    }
+  }
+  &.tributary-pop {
+    .layer-body {
+      padding-bottom: 0;
+    }
+  }
+}
+
+// mobile
+@include mobile {
+  .layer-dimmed {
+    text-align: center;
+    .layer {
+      display: inline-block; max-height: initial; position: relative; max-width: 80%; left: 0; margin-left: 0 !important; text-align: left;
+      .layer-header {
+        height: rem(100); padding: rem(28) rem(90) rem(28) rem(30); font-size: rem(32); line-height: rem(47);
+        .layer-close { width: rem(100); height: rem(100); @include svg($popCloseMobile); background-size: rem(32); }
+      }
+    }
+    &:not(.alert-pop):not(.share-pop) {
+      .layer { max-width: 100%; width: 100% !important; height: 100vh !important; margin-top: 0 !important; top: 0 !important; padding-bottom: rem(40); }
+    }
+    /*
+    &.full {
+      .layer-footer { padding: rem(40); }
+      .layer {
+        max-width: 100%; width: 100% !important; height: 100% !important; max-height: 100%;
+        margin: 0 !important; top: 0 !important; left: 0 !important;
+      }
+      &.footerbar {
+        .layer .layer-body { max-height: calc(100vh - 16.25rem) !important; }
+      }
+    }
+    */
+    &.alert-pop {
+      .layer {
+        width: rem(450) !important;
+        .layer-header { height: rem(80); padding: rem(24) 0; line-height: rem(32); }
+        .layer-body {
+          min-height: auto; padding: rem(44) 0;
+          .comment { font-size: rem(24); }
+        }
+      }
+    }
+    &.is-footer {
+      &:not(.alert-pop) {
+        padding-top: rem(100);
+        .layer {
+          overflow-y: auto; padding: 0; max-height: 100%;
+          .layer-header { position: fixed; top: 0; left: 0; }
+          .layer-body { min-height: calc( 100vh - 32rem); max-height: none; }
+          .layer-footer { position: static; height: rem(210); padding: rem(30) rem(30) rem(80) rem(30); }
+        }
+        &.main-layer-pop {
+          padding-top: 0; display: flex; align-items: center; justify-content: center;
+          .layer {
+            height: auto!important; position: relative; padding-bottom: 0; max-width: 517px;
+          .layer-header { position: absolute; top: 0; left: 0; right: 0; background: transparent; z-index: 10; }
+          .layer-body { padding: 0;  height: auto; min-height: auto;}
+          .layer-footer { height: rem(100); padding: 0;
+            > div { justify-content: flex-start;
+              > .btn-area { flex: 1; margin: 0; }
+            }
+          }
+        }
+      }
+    }
+  }
+    &.share-pop {
+      .layer {
+        width: rem(510) !important; height: rem(340) !important;
+        .layer-header {
+          height: rem(80); padding: rem(24) 0; font-size: rem(26); line-height: rem(32);
+          .layer-close { width: rem(80); height: rem(80); right: rem(-18); @include svg($popCloseDark); background-size: rem(22); }
+        }
+        .share-list {
+          padding: rem(40) 0;
+          li {
+            a { width: rem(80); }
+          }
+        }
+      }
+    }
+    .video-pop {
+      .layer-body {
+        .layer-video-area {
+          width: 100%; position: fixed; left: 0; top: 50%; transform: translate(0, -50%);
+        }
+      }
+    }
+  }
+}

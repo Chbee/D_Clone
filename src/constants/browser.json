@@ -1,0 +1,10 @@
+{
+    "chrome": "chrome",
+    "firefox": "firefox",
+    "samsung": "samsung",
+    "opera": "opera",
+    "ie": "ie",
+    "edge": "edge",
+    "safari": "safari",
+    "unknown": "unknown"
+}
