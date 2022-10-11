@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.pagination-area {
+  display: flex; justify-content: center; align-items: center;
+  ul {
+    display: flex; flex-wrap: nowrap;
+    li { 
+      margin: 0 rem(15);
+      a { font-size: rem(14); line-height: rem(18); color: #999; }
+      &.on {
+        a { font-weight: 500; color: #111; }
+      }
+    }
+  }
+  .btn-{
+    &prev, &next, &first, &last { height: rem(10); font-size: 0; border: 0 none; cursor: pointer; }
+    &first { width: rem(13); margin-right: rem(15); @include svg($paginationFirst); }
+    &prev { width: rem(5); margin-right: rem(15); @include svg($paginationPrev); }
+    &next { width: rem(5); margin-left: rem(15); @include svg($paginationNext); }
+    &last { width: rem(13); margin-left: rem(15); @include svg($paginationLast); }
+    &prev:disabled, &next:disabled, &first:disabled, &last:disabled { opacity: .3; }
+  }
+}
+
+// mobile 
+@include mobile {
+  .pagination-area {
+    ul {
+      li { 
+        margin: 0 rem(30);
+        a { font-size: rem(26); line-height: rem(26.3); }
+        &.on {
+          a { font-weight: 500; color: #111; }
+        }
+      }
+    }
+    .btn-{
+      &prev, &next, &first, &last { height: rem(20); }
+      &first { width: rem(24); margin-right: rem(30); @include svg($moPaginationFirst); background-size: contain; }
+      &prev { width: rem(12); margin-right: rem(30); @include svg($moPaginationPrev); background-size: contain; }
+      &next { width: rem(12); margin-left: rem(30); @include svg($moPaginationNext); background-size: contain; }
+      &last { width: rem(24); margin-left: rem(30); @include svg($moPaginationLast); background-size: contain; }
+    }
+  }  
+}

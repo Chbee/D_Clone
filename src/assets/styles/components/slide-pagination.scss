@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+.slide-pagination-area {
+  display: inline-block;
+  .swiper-pagination-fraction { 
+    display: inline-block; width: auto; font-size: rem(14); font-weight: 600; color: #767676; vertical-align: middle;
+  }
+  button {
+    display: inline-block; width: rem(20); height: rem(11); font-size: 0; vertical-align: middle;
+    &.btn-prev { margin-right: rem(10); @include svg($slideNext); background-size: 100% auto; transform: rotate(180deg);
+      &.swiper-button-disabled { @include svg($slidePrev); background-size: 100% auto; transform: rotate(0); }
+    }
+    &.btn-next { margin-left: rem(10); @include svg($slideNext); background-size: 100% auto; 
+      &.swiper-button-disabled { @include svg($slidePrev); background-size: 100% auto; transform: rotate(180deg); }
+    }
+  }
+  .product-page-list { display: none; }
+}
+.product-img-area {
+  .slide-pagination-area { display: block;
+    button { width: rem(30); height: rem(30); margin: rem(-15) 0 0; position: absolute; top: 50%; z-index: 5; transform: rotate(0); 
+      &.btn-product-prev { left: rem(20);@include svg($btnCirclePrev); } 
+      &.btn-product-next { right: rem(20); @include svg($btnCircleNext); } 
+    }
+  }
+}
+
+.shop-result {
+  .visual-swiper-area {
+    .slide-pagination-area { position: absolute; left: 0; right: 0; bottom: rem(23); text-align: center;
+      .btn-visual-prev { display: none; }
+      .btn-visual-next { display: none; }
+    }
+  }
+}
+
+//shop
+.visual-swiper-area {
+  .slide-pagination-area {
+    display: block;
+    .btn-prev { display: none; }
+    .btn-next { display: none; }
+  }
+}
+
+// main
+.main-visual {
+  .main-page-list {
+    color: rgba(255,255,255,.3);
+  }
+  .btn-prev, .btn-next { display: none; }
+}
+.main-pop { overflow: hidden;
+  .slide-pagination-area {
+    .btn-visual-prev {
+      width: rem(20); height: rem(32); margin-top: rem(-16); position: absolute; left: rem(28); top: 43%; @include svg($btnMainPopSide); z-index: 10; transform: rotate(0);
+    }
+    .btn-visual-next {
+      width: rem(20); height: rem(32); margin-top: rem(-16); position: absolute; right: rem(28); top: 43%; @include svg($btnMainPopSide); z-index: 10; transform: rotate(180deg);
+    }
+    .visual-page-list { width: 100%; margin: 0; position: absolute; bottom: rem(50); left: 0; right: 0; text-align: center;  z-index: 10; background: transparent;
+      .swiper-pagination-bullet { margin: 0 rem(5); }
+      .swiper-pagination-bullet-active { background: #fff; }
+    }
+  }
+}
+
+// mobile 
+@include mobile {
+  .slide-pagination-area {
+    .swiper-pagination-fraction { font-size: rem(24); }
+    button {
+      width: rem(40); height: rem(22);
+      &.btn-prev { margin-right: rem(40); }
+      &.btn-next { margin-left: rem(40); }
+    }
+  }
+  .responsive-area .slide-pagination-area .page-list { display: inline-block; }
+  .main-pop {
+    .slide-pagination-area { top: 0;
+      .btn-visual-prev {
+        background-size: contain;
+      }
+      .btn-visual-next {
+        background-size: contain;
+      }
+    }
+  }
+}

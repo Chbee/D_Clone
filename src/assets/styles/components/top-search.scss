@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.search-area {
+  .select-area { vertical-align: top;}
+  .search-form { display: inline-block; margin-left: rem(28); position: relative; vertical-align: top;
+    .btn-area {
+      width: rem(60); height: rem(60); position: absolute; right: 0; top: 0;
+    }
+  }
+}
+
+// mobile 
+@include mobile {
+  .search-area {
+    .select-area { width: rem(210) !important; }
+    .search-form { width: calc(100% - 14.875rem);
+      .btn-area {
+        width: rem(60); height: rem(60); position: absolute; right: 0; top: 0;
+      }
+    }
+  }
+  .search-area .search-form { width: calc(100% - 14.88rem) }
+}

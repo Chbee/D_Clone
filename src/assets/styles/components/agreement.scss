@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.agreemnt-area {
+  li { display: flex;
+    .check-area { padding-right: rem(35); }
+    .btn-area { margin-top: rem(3); white-space: nowrap; }
+    & + li { margin-top: rem(16); }
+  }
+  &.basics-agreement {
+    .check-all { font-weight: 700; }
+    ul {
+      padding: rem(20) 0 rem(40); margin-top: rem(20); border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;
+      li { justify-content: space-between;
+        & + li { margin-top: rem(10); }
+      } 
+    }
+  }
+  &.between {
+    li { justify-content: space-between; }
+  }
+}
+
+
+// mobile 
+@include mobile {
+  .agreemnt-area {
+    li { display: flex; justify-content: space-between;
+      .check-area { padding-right: 0; }
+      .btn-area { margin-top: rem(3); white-space: nowrap; }
+    }
+  }
+}

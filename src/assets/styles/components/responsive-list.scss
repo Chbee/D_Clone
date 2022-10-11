@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.responsive-area { position: relative; padding-bottom: rem(100); }
+.slide-pagination-area { display: none; }
+
+// exhibition - current
+.preview-work-area .slide-pagination-area { display: block; }
+.affiliate-program-area .slide-pagination-area { display: block; }
+.author-pop .slide-pagination-area { display: none; }
+
+
+// mobile 
+@include mobile {
+  .slide-pagination-area { 
+    display: block; position: absolute; left: 0; bottom: 0; right: 0; text-align: center;
+  }
+  .responsive-area { padding-bottom: rem(50);
+    .slide-pagination-area .swiper-pagination-fraction { display: inline-block; width: auto; }
+  }
+  .preview-work-area .slide-pagination-area { display: none; }
+  .affiliate-program-area .slide-pagination-area { display: none; }
+}
