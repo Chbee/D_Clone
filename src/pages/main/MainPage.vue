@@ -161,6 +161,7 @@ export default {
         on: {
           slideChange: () => {
             const progressBar = this.$refs.mvProgressbar
+            // const progressBar = this.$el.querySelector('.mv-progress-bar')
             window.$(progressBar).css('width', '0%')
             window.$(progressBar).stop().animate({ width: '100%' }, 5000)
           }
@@ -178,6 +179,7 @@ export default {
   methods: {
     mvControl(e) {
       const progressBar = this.$refs.mvProgressbar
+      // const progressBar = this.$el.querySelector('.mv-progress-bar')
       if(e.target.parentElement.classList.contains('play')) {
         this.visualPlay = false
         this.mainSwiper.$swiper.autoplay.start()
