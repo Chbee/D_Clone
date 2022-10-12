@@ -798,12 +798,7 @@ import { isEmpty } from '@utils/StringUtils/StringUtil.js'
 import { specialCharacters } from '@utils/common/common.js'
 import { replaceSpecialKeyword } from '@utils/common/inputValidation.js'
 
-import { TYPES, ModuleName } from '@store/shop/shopStore'
-import { createNamespacedHelpers } from 'vuex'
-
 import { getDayInfo } from '@api/main/DateChk.js'
-
-const shopStore = createNamespacedHelpers(ModuleName)
 
 export default {
   name: 'Header',
@@ -960,10 +955,6 @@ export default {
     shopSubMenuMobileList() {
       return [].concat(this.categoryDepth2).concat(this.shopSubMenuList)
     },
-    ...shopStore.mapGetters([
-      TYPES.GET_USER_WISH_COUNT,
-      TYPES.GET_USER_CART_COUNT
-    ]),
     foundationUrl() {
       return process.env.VUE_APP_WEB_FOUNDATION_URL
     }
@@ -1261,11 +1252,6 @@ export default {
       this.menuCall = true
     },
     // header source
-    // shop store
-    ...shopStore.mapActions([
-      TYPES.SELECT_USER_WISH_COUNT,
-      TYPES.SELECT_USER_CART_COUNT
-    ]),
     langChange(lang, event) {
       if(event === 'toggle') {
         switch (lang) {
