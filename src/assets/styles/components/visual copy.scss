@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.visual{
+  width: 100%; height: rem(440); 
+  &.visitingInfo{ background: url('~@images/visit/visual-gusuelmoa-pc.png') no-repeat; background-position: rem(120) center; background-size: cover; margin-bottom: rem(105); }
+  &.aboutmuseum{ background-image: url('~@images/visit/visual-aboutmuseum-pc.png'); height: rem(1080); }
+}
+
+// mobile 
+@include mobile {
+  .visual{
+    height: rem(264); margin-bottom: rem(100);
+    &.visitingInfo{ 
+      background: url('~@images/visit/visual-gusuelmoa-mobile.png') no-repeat; background-size: cover; 
+      background-position: rem(30) 0;
+    }
+    &.aboutmuseum{ height: rem(421); background: url('~@images/visit/visual-aboutmuseum-mobile.png'); background-size: cover; }
+  }
+}

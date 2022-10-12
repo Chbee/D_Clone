@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.field-notice-area { margin-top: rem(12); position: relative;
+  .notice-text { display: inline-block; padding-left: rem(28); position: relative; font-size: rem(13); line-height: rem(22); letter-spacing: rem(-.33); color: #999;
+    &::before { position: absolute; left: 0; top: 0; width: rem(22); height: rem(22); @include svg($iconError); content: ""; }
+    &.ico-none { padding-left: 0;
+      &::before { display: none; }
+    }
+  }
+}
+.pin-area .field-notice-area {
+  margin-top: rem(0);
+  .notice-text { font-size: rem(16); line-height: rem(26); color: #666; }
+}
+
+
+// mobile 
+@include mobile {
+  .field-notice-area { margin-top: rem(13);
+    .notice-text { padding-left: rem(42); font-size: rem(26); line-height: rem(30); letter-spacing: rem(-.65);
+      &::before { width: rem(30); height: rem(30); @include svg($moIconError); background-size: contain;}
+    }
+  }
+  .pin-area .field-notice-area {
+    margin-top: rem(10);
+    .notice-text { font-size: rem(26); line-height: rem(28); letter-spacing: rem(-.65); }
+  }
+  
+}

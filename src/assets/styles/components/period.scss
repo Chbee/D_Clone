@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.period {
+  display: inline-block; @include clear; vertical-align: top;
+  ul {
+    display: flex; width: 45%; float: left; align-items: center;
+    li { 
+      width: 25%;
+      & + li { margin-left: rem(2);}
+      button { width: 100%; height: rem(48); border: 1px solid #ddd; font-size: rem(14); letter-spacing: rem(-.42); }
+      &.on button { background: #111; border: 1px solid #111; color: #fff; }
+    }
+  }
+  .date-group {
+    display: flex; width: 55%; padding-left: 3%; float: left; align-items: center;
+    > span { display: inline-block; margin: 0 rem(10); }
+  }
+}
+
+// mobile 
+@include mobile {
+  .period {
+    display: block; width: 100% !important; position: relative;
+    ul {
+      width: 100%;
+      li { 
+        width: 25%;
+        & + li { margin-left: rem(5);}
+        button { height: rem(100); border: rem(2) solid #ddd; font-size: rem(30); letter-spacing: rem(-.9); }
+        &.on button { border: rem(2) solid #111; }
+      }
+    }
+    .date-group {
+      width: 100%; padding: rem(48) 0 0; float: none;
+      > span { display: inline-block; width: rem(15); margin: 0 rem(15); font-size: rem(30); line-height: rem(28); letter-spacing: rem(-.75); text-align: center;}
+    }
+  }
+  .mypage-area .search-area .period .date-group { padding-right: rem(150); }
+}

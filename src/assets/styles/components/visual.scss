@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.visual{
+  width: 100%; height: rem(640); overflow: hidden;
+  &.visitingInfo{ background: url('~@images/visit/visual-gusuelmoa-pc.png') no-repeat; background-position: center; background-size: cover; margin-bottom: rem(80); }
+  &.daelim { background: url('~@images/visit/visual-daelim-pc.png') no-repeat; background-position: center; background-size: cover; margin-bottom: rem(80);}
+  &.dmuseum { background: url('~@images/visit/visual-dmuseum-pc.png') no-repeat; background-position: center; background-size: cover; margin-bottom: rem(80); }
+  &.gusuelmoa { background: url('~@images/visit/visual-gusuelmoa-pc.png') no-repeat; background-position: center; background-size: cover; margin-bottom: rem(80);}
+  // &.aboutmuseum{ background-image: url('~@images/visit/visual-aboutmuseum-pc.png'); height: rem(1080); }
+  &.aboutmuseum{ height: rem(1070); } // 2022.03.04 정양진 이사님의 요청으로 백그라운드 이미지 제거, 퍼블 소스와 달리 동영상으로 되어져 있어 height수정 ↑
+  &.membershipinfo{ background: url('~@images/join/visual-membershipinfo.png') no-repeat; background-position: center; background-size: cover; height: rem(630); filter: brightness(0.5); }
+  &.wide { display: block; }
+  &.small { display: none; }
+}
+
+// mobile 
+@include mobile {
+  .visual{
+    height: rem(422); margin-bottom: rem(95); overflow: hidden;
+    &.visitingInfo{ 
+      background: url('~@images/visit/visual-gusuelmoa-mobile.png') no-repeat; background-size: cover;  margin-bottom: rem(60); 
+    }
+    &.daelim { background: url('~@images/visit/visual-daelim-mobile.png') no-repeat; background-size: cover; margin-bottom: rem(60); }
+    &.dmuseum { background: url('~@images/visit/visual-dmuseum-mobile.png') no-repeat; background-size: cover; margin-bottom: rem(60); }
+    &.gusuelmoa { background: url('~@images/visit/visual-gusuelmoa-mobile.png') no-repeat; background-size: cover; margin-bottom: rem(60); }    
+    // &.aboutmuseum{ height: rem(421); background: url('~@images/visit/visual-aboutmuseum-mobile.png'); background-size: cover; }
+    &.aboutmuseum{ height: rem(421); background-size: cover; } // 2022.03.04 정양진 이사님의 요청으로 백그라운드 이미지 제거
+    &.membershipinfo{ margin-top: rem(90); background: url('~@images/join/visual-membershipinfo-mobile.png') no-repeat; background-position: center; background-size: cover; margin-bottom: 0; height: rem(750);}
+    &.wide { display: none; }
+    &.small { display: block; }
+  }
+}

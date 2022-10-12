@@ -1,0 +1,76 @@
+@charset 'utf-8';
+
+.slide-wide {
+  position: relative;
+  .slide-item {
+    vertical-align: middle;
+  }
+  .slide-pagination-area {
+    position: absolute; top: 0; left: 0; z-index: 5;
+  }
+  .swiper-container {
+    overflow: visible !important;
+  }
+}
+
+.responsive-area {
+  .swiper-area {
+    > div > ul > li + li { margin-top: rem(50); }
+    .step2 {
+      > ul {
+        display: flex; flex-wrap: wrap;
+        > li { width: 50%; padding-right: rem(100); margin: 0 0 rem(50);
+          .instructor-area { display: block;
+            .img-area { width: 100%; }
+            .info-area { width: 100%; padding-left: 0; margin-top: rem(20); 
+              p { @include ell($line: 4); }
+              .photo-list { margin-top: rem(40); }
+            }
+          }
+        }
+      }
+    }
+    .step3 {
+      > ul {
+        display: flex; flex-wrap: wrap; width: 100%;
+        > li { width: calc(100%/3 - 1.18rem ); margin: 0 rem(28) rem(50) 0;
+          .instructor-name { display: none;}
+          &:nth-child(3n) { margin-right: 0; }
+          .instructor-area { display: block;
+            .img-area { width: 100%; }
+            .info-area { width: 100%; padding-left: 0; margin-top: rem(30); text-align: center;
+              .instructor-name { display: block; }
+              .btn-area { display: block; margin-top: rem(20); }
+              .txt, .work-list, .photo-list { display: none; }
+            }
+          }
+        }
+      }
+    }
+    .step4 {
+      > ul {
+        display: flex; flex-wrap: wrap; width: 100%;
+        > li { width: calc(100%/4 - 1.312rem ); margin: 0 rem(28) rem(50) 0;
+          .instructor-name { display: none;}
+          &:nth-child(4n) { margin-right: 0; }
+          .instructor-area { display: block;
+            .img-area { width: 100%; }
+            .info-area { width: 100%; padding-left: 0; margin-top: rem(30); text-align: center;
+              .instructor-name { display: block; }
+              .btn-area { display: block; margin-top: rem(20); }
+              .txt, .work-list, .photo-list { display: none; }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// mobile
+@include mobile {
+  .slide-item.normal-item {
+    width: 90% !important;
+  }
+}
+

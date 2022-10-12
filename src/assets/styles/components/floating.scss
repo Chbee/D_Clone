@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+.floating-menu { position: fixed; position: fixed; top: 50%; right: rem(35); z-index: 15;
+  a { font-size: 0; color: transparent; display: inline-block; border-radius: 50%; overflow: hidden; }
+  .buy-a-ticket { position: relative; display: block; left: rem(-90); width: rem(195); height: rem(195); background: url('~@images/main/floating-book-ticket.png') no-repeat; background-size: contain; } //@include svg($floatBuyTicket);
+  .join-d-grew, .become-a-member { display: block; width: rem(195); height: rem(195); transform: translate(0, rem(-60)); z-index: 2; }
+  .join-d-grew { background: url('~@images/main/floating-join-dgrew.png') no-repeat; background-size: contain; } // @include svg($floatingJoinDgrew);
+  .become-a-member { background: url('~@images/main/floating-join-dgrew.png') no-repeat; background-size: contain; } //@include svg($floatingBecomeMember);
+  &:hover {
+    .buy-a-ticket { animation: rotate 1s infinite; }
+    .join-d-grew, .become-a-member { animation: translate 1s infinite; }
+  }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(45deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes translate {
+    0% { transform: translate(0, rem(-60)); }
+    50% { transform: translate(0, rem(-75)); }
+    100% { transform: translate(0, rem(-60)); }
+}
+
+
+// mobile 
+@include mobile {
+  .floating-menu { right: rem(10);
+    .buy-a-ticket { width: rem(160); height: rem(160); left: rem(-60); transform: translate(0, rem(-55)); }
+    .join-d-grew { width: rem(160); height: rem(160); transform: translate(0, rem(-95)); }
+    .become-a-member { width: rem(160); height: rem(160); transform: translate(0, rem(-95)); }
+  }
+}

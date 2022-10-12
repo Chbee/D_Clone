@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+# D_Clone
+
+# commit test
+=======
 # d-clone
 
 ## Project setup
@@ -22,3 +27,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+>>>>>>> 9d8eef2e89526ffc31571e8937732c534ec5bb62

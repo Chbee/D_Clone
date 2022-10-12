@@ -63,4 +63,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@styles/components/swiper.scss';
+@import '@styles/elements/btn.scss';
+@import '@styles/main/main.scss';
+@import '@styles/components/slide-pagination.scss';
+@import '@styles/components/responsive-list.scss';
 </style>
