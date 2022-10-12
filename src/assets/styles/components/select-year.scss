@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+$listSize: 64;
+
+.select-year-area {
+  .select-slide {
+    display: flex; justify-content: center; 
+    .year-list-box {
+      max-width: rem($listSize * 5); overflow: hidden;
+      ul {
+        display: block; font-size: 0;
+        li { 
+          display: inline-block; width: rem($listSize); text-align: center; vertical-align: middle;
+          a { font-size: rem(18); line-height: rem(22); color: #767676; }
+          &.on {
+            a { font-weight: 500; color: #111; }
+          }
+        }
+      }
+    }
+    .btn-{
+      &prev, &next { width: rem(8); height: rem(22); font-size: 0; border: 0 none; cursor: pointer; }
+      &prev { 
+        @include svg($prevDisabled); 
+        &:disabled { @include svg($prev); cursor: auto; }
+      }
+      &next { 
+        @include svg($next); 
+        &:disabled { @include svg($nextDisabled); cursor: auto; }
+      }
+    }
+  }
+  .select-box {
+    display: none;
+  }
+}
+
+// mobile 
+@include mobile {
+  .select-year-area {
+    .select-slide { display: none; }
+    .select-box {
+      display: block; border-bottom: 2px solid #bbb;
+      select { 
+        width: 100%; height: rem(80); border: 0 none; font-size: rem(28); color: #000;
+        -o-appearance: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; 
+        @include svg($selectArrow); background-position: center right; background-size: rem(24) auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+.sub-top-area { 
+  .container { 
+    position: relative; width: rem(1280); margin: 0 auto; 
+  }
+  h2 { 
+    position: relative; font-weight: 300; font-size: rem(72); color: #1d1d1d;
+    &:before { display: block; position:absolute; top: 50%; left: rem(-312); margin-top: rem(1); width: rem(290); height: rem(1); background: #1d1d1d; content: ''; }
+  }
+  nav {
+    position: absolute; bottom: rem(24); right: rem(-20);
+    ul {
+      display: flex; 
+      li {
+        position: relative; padding: 0 rem(20); font-weight: 300; font-size: rem(14); line-height: rem(18); color: #999; letter-spacing: -0.035em;
+        + li:before { display: block; position: absolute; top: 50%; left: 0; width: rem(1); height: rem(10); margin-top: rem(-5); background: #ccc; content: ''; }
+        &:first-child { padding: 0 rem(27); @include svg($home); font-size: 0; background-position: top center; }
+        &:last-child { font-weight: 500; color: #111; }
+      }
+    }
+  }
+  &.forms { padding: rem(80) 0 rem(60) 0; 
+    h2 { 
+      font-size: rem(48) !important; font-weight: 500 !important; line-height: 1.2; letter-spacing: rem(-1.2); text-align: center;
+      &:before { display: none !important; }
+    }
+    nav { display: none; }
+  }
+  &.museum {
+    nav { display: none; }
+  }
+  &.faq {
+    .container{
+      h2 { font-weight: 200 !important; }
+    }
+  }
+  &.search { padding: rem(90) 0 rem(100) 0; position: relative;
+    nav { display: none; }
+    .btn-close { position: absolute; top: rem(24); right: rem(60); width: rem(22); height: rem(22);  content: ''; @include svg($moPopCloseBlack); color: transparent; cursor: pointer; }
+  }
+  &.mnotice {padding: rem(90) 0 rem(100); position: relative;
+    nav { display: none; }
+  }
+  .event-type-list {
+    display: flex; position: relative; 
+    &:before { display: block; position:absolute; top: 50%; left: rem(-312); margin-top: rem(1); width: rem(290); height: rem(1); background: #111; content: ''; }
+    li {
+      a { font-weight: 300; font-size: rem(72); color: #ddd; }
+      &.on a { font-weight: 500; color: #111; }
+      + li { 
+        position: relative; padding-left: rem(68);
+        &:before { position: absolute; top: 50%; left: rem(32); width: rem(4); height: rem(50); margin-top: rem(-24); background: #ddd; content: ''; }
+      }
+    }
+  }
+}
+
+// mobile 
+@include mobile {
+  .sub-top-area { display: none;
+    &.aboutmuseum { display: block; }
+    .container { width: 100%; }
+    h2 { 
+      padding-left: rem(120); font-weight: normal; font-size: rem(60);
+      &:before { left: 0; width: rem(90); height: rem(2); }
+    }
+    nav { display: none; }
+    &.mnotice {padding: rem(70) 0 rem(100) 0; position: relative;
+    }
+    &.membershipinfo {
+      padding: rem(54) 0 rem(100) 0;
+      h2{
+        &:before{ width: rem(60) }
+      }
+    }
+    &.forms { padding: 0 0 rem(137) 0;
+      h2 { display: none; }
+    }
+    &.dmuseum { display: block; padding: 0 0 rem(137) 0;}
+    .event-type-list {
+      padding-left: rem(120);
+      &:before { left: 0; width: rem(90); height: rem(2); }
+      li {
+        a { font-size: rem(60); word-break: keep-all; }
+        + li {
+          padding-left: rem(60); 
+          &:before { left: rem(28); }
+        }
+      }
+    }
+    &.visitingInfo {display:block;padding: 0 0 rem(137) 0;}
+  }
+}

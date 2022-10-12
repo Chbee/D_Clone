@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+.note-list {
+  > ul { 
+    > li {
+      margin-top: rem(40);
+      .note-title { display: block; position: relative; padding-left: rem(34); font-size: rem(24); line-height: rem(34); letter-spacing: rem(-.6); font-weight: 700;
+        &::before { position: absolute; left: 0; top: rem(6); width: rem(22); height: rem(22); @include svg($iconError); content: ""; }
+      }
+      .dot-list { 
+        margin-top: rem(20);
+        > li { position: relative; padding-left: rem(12);
+          p { line-height: rem(26); letter-spacing: rem(-.4); color: #666; 
+            & + .btn-area { margin-left: rem(20); }
+          }
+          .btn-area { display: inline-block; }
+          &::before { width: rem(4); height: rem(4); position: absolute; left: 0; top: rem(11); background: #666; border-radius: rem(4); content: ''; }
+        }
+      }
+    }
+  }
+  &.big-title {
+    >ul > li .note-title { font-size: rem(24); font-weight: 500; line-height: 1; letter-spacing: rem(-0.6); margin-left: rem(-2); }
+  }
+  &.no-mt li { margin-top: 0; }
+  &.normal { 
+    .note-title {
+      padding: 0; font-size: rem(20);
+      &::before { display: none;}
+    }
+    .dot-list { 
+      > li::before { top: rem(4); background: none; content: '-'; }
+    }
+  }
+  &.blank { 
+    .note-title {
+      padding: 0; font-size: rem(20);
+      &::before { display: none;}
+    }
+    .dot-list { 
+      > li { padding-left: 0;
+        &::before { display: none; }
+      }
+    }
+  }
+  &.star { 
+    .note-title {
+      padding: 0; font-size: rem(20);
+      &::before { display: none;}
+    }
+    .dot-list { 
+      > li::before { top: rem(4); background: none; content: '*'; color: #666; }
+    }
+  }
+}
+
+.gift-pop .note-list > ul > li { margin-top: rem(25); }
+
+// mobile 
+@include mobile {
+  .note-list {
+    > ul { 
+      > li {
+        margin-top: rem(40);
+        .note-title { padding-left: rem(52); font-size: rem(36) !important; line-height: 1; letter-spacing: rem(-.9);
+          &::before { width: rem(40); height: rem(40); top: 0; @include svg($moIconError); background-size: contain;}
+        }
+        .dot-list { 
+          margin-top: rem(42);
+          > li { position: relative; padding-left: rem(16);
+            & + li { margin-top: rem(5); }
+            p { font-size: rem(26); line-height: rem(38); letter-spacing: rem(-.78);
+              & + .btn-area { margin-left: 0; }
+            }
+            .btn-area { width: 100%; margin-top: rem(20); }
+            &::before { width: rem(6); height: rem(6); top: rem(16); border-radius: rem(6); }
+          }
+        }
+      }
+    }
+    &.normal { 
+      .note-title {
+        padding: 0; font-size: rem(30);
+        &::before { display: none;}
+      }
+      .dot-list { 
+        margin-top: rem(15);
+        > li::before { top: rem(6); font-size: rem(24); background: none; content: '-'; color: #666; }
+      }
+    }
+    &.big-title { margin-top: rem(8);
+      ul {
+        li { 
+          .note-title {
+            padding: 0; font-size: rem(30) !important;
+            &::before { display: none;}
+          }
+        }
+      }      
+      .dot-list { 
+        margin-top: rem(15);
+        > li::before { top: rem(6); font-size: rem(24); background: none; content: '-'; color: #666; }
+      }
+    }
+    &.star { 
+      .dot-list { 
+        > li::before { content: '*'; }
+      }
+    }
+  }
+  .gift-pop .note-list > ul > li { margin-top: rem(40); }
+}

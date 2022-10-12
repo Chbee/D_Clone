@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/* file */
+.file-area {
+  position: relative;
+  .file-list {
+    li { display: flex; justify-content: space-between;
+      & + li { margin-top: rem(10); } 
+      .input-area { width: calc(100% - 13.625rem); }
+      .btn-area { display: inline-block;
+        label { display: inline-block; width: rem(190); height: rem(60); border: 1px solid #111; font-size: rem(14); line-height: rem(60); letter-spacing: rem(-.35); font-weight: 500; cursor: pointer; 
+          &:hover { background-color: #111; color: #fff; opacity: .5; }
+        }
+        input[type="file"] { position: absolute; left: 0; top: 0; z-index: -1; opacity: 0; }
+        button { display: none; }
+      }
+      &.multiple-file {
+        button {  display: block; }
+      }
+    }
+  }
+  .file-notice {
+    margin-top: rem(12);
+    li { position: relative; font-size: rem(14); line-height: rem(22); letter-spacing: rem(-.35); color: #999; 
+      .selected-file { margin-top: rem(5);
+        li { display:  inline-block; 
+          a { display: block; padding-right: rem(20); color: #666; line-height: rem(22); letter-spacing: rem(-.35); 
+            &::after { display: inline-block; width: rem(15); height: rem(15); margin-left: rem(10); @include svg($btnDownload); content: ""; vertical-align: top; }
+          }
+        }
+      }
+    }
+  }  
+}
+// mobile 
+@include mobile {
+  .file-area {
+    .file-list {
+      li {
+        & + li { margin-top: rem(10); } 
+        .input-area { width: calc(100% - 13.625rem); }
+        .btn-area { margin-left: rem(30);
+          label { width: rem(210); height: rem(100); border: rem(2) solid #111; font-size: rem(26); line-height: rem(100); letter-spacing: rem(-.65); }
+        }
+      }
+    }
+    .file-notice {
+      margin-top: rem(16);
+      li { font-size: rem(26); line-height: rem(38); letter-spacing: rem(-.65);
+        .selected-file { margin-top: rem(12);
+          li { display:  block; 
+            & + li { margin-top: rem(12); } 
+            a { padding-right: 0; font-size: rem(26); line-height: rem(38); letter-spacing: rem(-.65); 
+              &::after { width: rem(26); height: rem(26); margin-left: rem(20); @include svg($btnDownload); background-size: contain; vertical-align: middle; }
+            }
+          }
+        }
+      }
+    }
+  }
+}

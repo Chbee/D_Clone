@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+.swiper-area {
+  .instructor-name { display: block; margin-bottom: rem(20); font-size: rem(30); line-height: rem(28); letter-spacing: rem(-.75); font-weight: 500; }
+  .instructor-area { display: flex;
+    .img-area { width: rem(408); }
+    .info-area { width: calc( 100% - 25.5rem); padding-left: rem(28);  position: relative;
+      .tit { font-size: rem(30); letter-spacing: rem(-.75); 
+        span { display: inline-block; margin-left: rem(10); font-size: rem(20); letter-spacing: rem(-.5); }
+      }
+      p { min-height: rem(110); color: #666; letter-spacing: -0.025rem; line-height: 1.75rem; }
+      .work-list { 
+        margin-top: rem(20);
+        li { line-height: rem(28); letter-spacing: rem(-.4); color: #666;
+          &::before { content: '-'; }
+        }
+      }
+      .photo-list {
+        // margin-top: rem(10); position: absolute; bottom: 0; left: rem(28); right: 0;
+        margin-top: rem(20); 
+        ul { display: flex; }
+        li { width: rem(147);
+          & + li { margin-left: rem(22); }
+        }
+      }
+      .instructor-name { display: none; }
+      .btn-area { display: none; }
+    }
+  }
+  .step2 {
+    > ul  { display: flex; flex-wrap: wrap; 
+      > li { width: 50%; padding-right: rem(100); margin: 0 0 rem(50);
+        .instructor-area { display: block;
+          .img-area { width: 100%; }
+          .info-area { width: 100%; padding-left: 0; margin-top: rem(20); 
+            p { @include ell($line: 4); }
+            .photo-list { position: static; margin-top: rem(40); }
+          }
+        }
+      }
+    }
+  }
+  .step3 {
+    > ul  { display: flex; flex-wrap: wrap; width: 100%;
+      > li { width: calc(100%/3 - 1.18rem ); margin: 0 rem(28) rem(50) 0;
+        .instructor-name { display: none;}
+        &:nth-child(3n) { margin-right: 0; }
+        .instructor-area { display: block;
+          .img-area { width: 100%; }
+          .info-area { width: 100%; padding-left: 0; margin-top: rem(30); text-align: center;
+            .instructor-name { display: block; }
+            .btn-area { display: block; margin-top: rem(20); }
+            .txt, .work-list, .photo-list { display: none; }
+          }
+        }
+      }
+    }
+  }
+  .step4 {
+    > ul  { display: flex; flex-wrap: wrap; width: 100%;
+      > li { width: calc(100%/4 - 1.312rem ); margin: 0 rem(28) rem(50) 0;
+        .instructor-name { display: none;}
+        &:nth-child(4n) { margin-right: 0; }
+        .instructor-area { display: block;
+          .img-area { width: 100%; }
+          .info-area { width: 100%; padding-left: 0; margin-top: rem(30); text-align: center;
+            .instructor-name { display: block; }
+            .btn-area { display: block; margin-top: rem(20); }
+            .txt, .work-list, .photo-list { display: none; }
+          }
+        }
+      }
+    }
+  }
+}
+
+// exhibition - current
+.author-about-area {
+  .instructor-name {
+    font-weight: 600; font-size: rem(24); 
+    .en { color: #767676; }
+  }
+}
+.author-pop {
+  .swiper-area .instructor-name .en { padding-left: rem(10); font-weight: 300; font-size: rem(28); color: #767676; }
+}
+
+
+// mobile 
+@include mobile {
+  .swiper-area { padding-bottom: 2.5rem;
+    .thumb-list.instructor-intro {
+      .instructor-name { display: block !important; padding: 0 rem(100); margin-bottom: rem(40); font-size: rem(44); letter-spacing: rem(-1.1); line-height: 1.4;
+        .en { color: #767676; }
+      }
+      .instructor-area { display: block; 
+        .img-area { width: 100%; padding: 0 rem(100); }
+        .info-area { width: 100%; margin-top: rem(30); padding: 0 rem(30);
+          .txt { font-size: rem(26); line-height: rem(40); letter-spacing: rem(-.65); text-align: left; min-height: auto; }
+          .tit { font-size: rem(44); letter-spacing: rem(-1.1); 
+            span { display: inline-block; margin-left: rem(10); font-size: rem(30); letter-spacing: rem(-.75); }
+          }
+          .work-list {
+            margin-top: rem(20); text-align: left;
+            li { font-size: rem(24); line-height: rem(38); letter-spacing: rem(-.6); color: #111; }
+          }
+          .photo-list { margin-top: rem(40); position: static;
+            li { width: rem(140); height: rem(140); 
+              & + li { margin-left: rem(43); }
+            }
+          }
+          .txt, .work-list, .photo-list { display: block !important; }
+          .instructor-name, .btn-area { display: none !important; }
+        }
+      }
+    }
+  }
+  .author-about-area .swiper-area .thumb-list.instructor-intro .instructor-name { text-align: center; font-size: rem(30); }
+  .author-pop .swiper-area .thumb-list.instructor-intro {
+    .instructor-name {
+      text-align: center; font-size: rem(30); 
+      .en { margin-left: rem(10); }
+    }
+    .instructor-area .info-area { padding: 0; }
+  }
+}

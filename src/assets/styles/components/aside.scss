@@ -1,0 +1,84 @@
+@charset "UTF-8";
+aside {
+  width: rem(190);
+ .menu-area {
+   .menu-title { 
+      display: block; border-bottom: 2px solid #111; padding: 0 rem(10); padding-bottom: rem(15); margin-bottom: rem(5); font-size: rem(26); letter-spacing: rem(-.52); font-weight: 600; 
+    }
+   .menu-list { 
+     > ul {
+      > li {
+        > a { display: block; padding: rem(14) rem(10); border-bottom: 1px solid #ddd; font-size: rem(20); font-weight: 600;
+          &::after{ float: right; margin-top: rem(10); content: ""; width: rem(9); height: rem(6); font-size: 0; background: url("~@images/mypage/arrow_up.png") 50% 50% no-repeat; background-size: contain; }
+        }
+        .sub-menu-area {
+          padding: rem(16) 0 rem(16) rem(20);
+          ul { 
+            li { 
+              a { display: block;  padding:rem(10) 0; color: #999; letter-spacing: rem(-.5); 
+                &:hover { font-weight: 600; color: #111; letter-spacing: rem(-.8); }
+              }              
+              &.on {
+                a { color: #111; font-weight: 700; letter-spacing: rem(-.8);  }
+              }
+            }
+          }
+        }
+        &.on {
+          >a {
+            &::after { content: ""; width: rem(9); height: rem(6); font-size: 0; background: url("~@images/mypage/arrow_down.png") 50% 50% no-repeat; background-size: contain; }
+          }
+        }
+      }
+     }
+   }
+ } 
+}
+
+// mobile 
+@include mobile {
+  aside {
+    width: 100%; position: fixed; left: 0; right: 0; top: rem(97); z-index: 10;
+    .menu-area {
+      .menu-title { 
+        width: 100%; height: rem(106); padding: 0 rem(30); margin: 0; position: relative; background: #fff; font-size: rem(40); line-height: rem(106); letter-spacing: rem(-1); border-bottom: rem(3) solid #111; text-align: left;
+        &::after { width: rem(42.4); height: rem(24); position: absolute; top: 50%; right: rem(30); margin: rem(-8) 0 0; @include svg($mypageCurrentArrow); background-size: contain; content: ''; }
+      }
+      .btn-back {
+        display: none;
+         margin-top: rem(8); width: rem(25); height: rem(32); font-size: 0; color: transparent; background: url("~@images/app/icon-arrow-left.png") 50% 50% no-repeat; background-size: contain; font-size: 0; color: transparent; 
+        position: absolute; left: rem(30); top: rem(30);
+      }
+      &.aside-back {
+        .menu-title { text-align: center; 
+          &::after { display: none; }
+        }
+        .btn-back { display: initial; }
+        .mypage-menu-list { display: none !important; }
+      }
+      .menu-list { 
+        height: 0; margin-top: rem(-1); overflow: auto; background: #fff;
+        > ul {
+          padding: rem(66) rem(30);
+          > li {
+            & + li { margin-top: rem(80); }
+            > a { padding: 0; border-bottom: 0; font-size: rem(28); color: #999; font-weight: 300; }
+            .sub-menu-area {
+              padding: rem(40) 0 0;
+              ul { 
+                li { 
+                  & + li { margin-top: rem(50); }
+                  a { font-size: rem(30); line-height: 1; color: #111; font-weight: 500; }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.on {
+        .menu-title::after { transform: rotate(180deg); }
+        .menu-list { height: calc(100vh - 12.875rem); }
+      }
+    } 
+  }
+}

@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.tooltip-area { 
+  display: inline-block; vertical-align: middle;
+  .icon-question { display: inline-block; position: relative; width: rem(22); height: rem(22); margin: rem(-4) 0 0 rem(7); @include svg($iconQuestion); vertical-align: middle; cursor: pointer; }
+  .pop-question { 
+    position: absolute; z-index: 2; padding: rem(24) rem(32) rem(20) rem(32); border: 1px solid #ddd; background: #fff;
+    .title { display: block; margin-bottom: rem(24); font-weight: 700; font-size: rem(20); line-height: rem(25); color: #111; letter-spacing: rem(-0.5); }
+    .close { position: absolute; top: rem(28); right: rem(32); width: rem(16); height: rem(16); @include svg($popQuestionClose); background-size: 100% auto; }
+    .txt { line-height: rem(22); }
+    .orange { color: #fe511d; }
+  }
+}
+// mobile 
+@include mobile {
+  .tooltip-area  .icon-question { width: rem(30); height: rem(30); margin: rem(-7) 0 0 rem(7); background-size: rem(30) auto; background-size: contain; }
+}
