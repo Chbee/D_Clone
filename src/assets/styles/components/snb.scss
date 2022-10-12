@@ -43,7 +43,7 @@
       li {
         flex: 1;
         border-left: 1px solid #ddd;
-        &:last-child { border-right: 1px solid #ddd}
+        &:last-child { border-right: 1px solid #ddd;}
         a { display: block; height: rem(50); line-height: 1; margin: 0; padding: 0 rem(10); font-size: rem(15); letter-spacing: rem(-.38); text-align: center; }
         &.on {
           a { 
