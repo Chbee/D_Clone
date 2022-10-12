@@ -16,12 +16,12 @@
               <template v-if="item.type === 'img'">
                 <div class="img-area">
                   <img 
-                    :src="require(`@images/${item.imgUrl}`)" 
+                    :src="item.imgUrl" 
                     :alt="item.subject"
                     class="pc"
                   >
                   <img 
-                    :src="require(`@images/${item.imgUrlMobile}`)"
+                    :src="item.imgUrlMobile"
                     :alt="item.subject" 
                     class="mo"
                   >
@@ -36,7 +36,7 @@
                     playsinline=""
                   >
                     <source 
-                      :src="require(`@images/${item.movUrl}`)" 
+                      :src="item.imgUrl" 
                       type="video/mp4"
                     >
                   </video>
@@ -60,12 +60,14 @@
                   <a
                     href="#"
                     class="btn-primary"
+                    @click="goToDetail(item.prgIdx)"
                   >자세히 보기</a>
                 </div>
                 <div class="btn-area">
                   <a
                     href="#"
                     class="btn-secondary"
+                    @click="goToReserve(item.prgIdx)"
                   >예매하기</a>
                 </div>
               </div>
@@ -96,6 +98,7 @@
 <script>
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import { fetchVisualListData } from '@/api/main/Main'
 import 'swiper/css/swiper.css'
 
 export default {
@@ -137,37 +140,21 @@ export default {
             // const progressBar = this.$el.querySelector('.mv-progress-bar')
             window.$(progressBar).css('width', '0%')
             window.$(progressBar).stop().animate({ width: '100%' }, 5000)
-            console.log('슬라이드 변경 감지')
+            // console.log('슬라이드 변경 감지')
           }
         }
       },
-      visualList: [
-        { 
-          subject: '대림 미술관', 
-          period: '2011.10.13 ~ 2012.03.18', 
-          en: "The 100th Anniversary of Finn Juhl's Birth", 
-          kr: '핀 율 탄생 100주년 - 북유럽 가구 이야기', 
-          type: 'mov',
-          movUrl: 'main/main-mov1.mp4',
-          movUrlMobile: 'main/main-mov1.mp4'
-        },
-        { 
-          subject: '대림 미술관', 
-          period: '2011.10.13 ~ 2012.03.18', 
-          en: "The 100th Anniversary of Finn Juhl's Birth", 
-          kr: '핀 율 탄생 100주년 - 북유럽 가구 이야기', 
-          className: 'daelim',
-          type: 'img',
-          imgUrl: 'main/main-visual.jpg',
-          imgUrlMobile: 'main/main-visual-m.jpg'
-        }
-      ]
+      visualList: [{}]
     }
   },
   computed: {
     mainSwiper() {
       return this.$refs.mainSwiper
     }
+  },
+  created() {
+    fetchVisualListData('6000100')
+      .then(res => this.mainSetting(res))
   },
   methods: {
     mvControl(e) {
@@ -181,6 +168,108 @@ export default {
         this.mainSwiper.$swiper.autoplay.stop()
         window.$(progressBar).stop()
       }
+    },
+    mainSetting(list) {
+      this.visualList = []
+      let seq = 0
+      let videoFl = 'N'
+      
+      list.forEach(item => {
+        const data = {}
+        let className = ''
+        switch(item.place) {
+        case '대림미술관' :
+          className = 'daelim'
+          break
+        case '디뮤지엄' :
+          className = 'd-museum'
+          break
+        case '구술모아당구장' :
+          className = 'guseulmoa'
+          break
+        default:
+          className = 'daelim'
+          break
+        }
+
+        data.typeFl = item.typeFl
+        // 장소
+        data.subject = item.place //
+        data.subjectEn = item.placeEn //
+        data.placeColorCd = item.placeColorCd
+        data.placeBakColorCd = item.placeBakcolorCd
+
+        // 기간 
+        data.period = item.period.replaceAll('-', '.') //
+        data.periodColor = item.evtColorCd //
+
+        // 제목
+        data.kr = item.title //
+        data.krColorCd = item.titleColorCd //
+        data.krYn = item.titleColorYn //
+        data.en = item.titleEn //
+        data.enColorCd = item.titleEnColorCd //
+        data.enYn = item.titleEnColorYn //
+        data.className = className
+
+        // 버튼
+        data.moreYn = item.btnMoreYn //
+        data.moreColorFl = item.btnColorFl //
+        data.rzFl = item.btnRzYn //
+        data.rzColorFl = item.btnRzColorFl //
+        data.prgIdx = item.prgIdx
+        data.prgTypeCd = item.prgTypeCd
+
+        // 이미지
+        data.mImgUrl = item.mimgUrl //
+        data.imgUrl = item.imgUrl
+        data.type = item.width !== 0 ? 'img' : 'mov' //
+
+        data.ticketDetail = item.ticketDetail
+        data.ticketReservation = item.ticketReservation
+
+        if(data.type === 'mov' && item.dispSeq === 1) {
+          videoFl = 'Y'
+        }
+
+        if(data.type === 'mov') {
+          data.movSeq = seq
+          data.videoFl = videoFl
+          seq++
+        }
+        
+        if(item.typeFl === 'S') {
+          data.btnNm = item.btnNm
+          data.btnNmEn = item.btnNmEn
+          data.link = item.btnLink
+          data.targetBlank = item.btnTargetBlank
+          data.btnColorFl = item.btnColorFl
+          data.choiceLink = item.choiceLink
+          data.btnOneYn = item.btnOneYn
+
+          data.btnNmTwo = item.btnNmTwo
+          data.btnNmTwoEn = item.btnNmTwoEn  
+          data.btnTwoLink = item.btnTwoLink
+          data.btnTwoColorFl = item.btnTwoColorFl
+          data.btnTwoYn = item.btnTwoYn
+        }
+        data.langType = this.langType
+        this.visualList.push(data)
+      })
+    },
+    goToDetail(item) {
+      if (!item.length) {
+        this._alert('화면 이동 불가 pgIdx값 없음')
+        return
+      }
+      this._alert('상세 화면 이동 : /exhibition/current/' + item)
+    },
+    goToReserve(item) {
+      if (!item.length) {
+        this._alert('화면 이동 불가 pgIdx값 없음')
+        return
+      }
+      this._alert('예매 화면 이동 : /ticket/reservation/' + item)
     }
   }
 }
