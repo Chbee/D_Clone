@@ -183,6 +183,18 @@ export default {
     }
   },
   methods: {
+    mvControl(e) {
+      const progressBar = this.$refs.mvProgressbar
+      if(e.target.parentElement.classList.contains('play')) {
+        this.visualPlay = false
+        this.mainSwiper.$swiper.autoplay.start()
+        window.$(progressBar).stop().animate({ width: '100%' }, 5000)
+      } else {
+        this.visualPlay = true
+        this.mainSwiper.$swiper.autoplay.stop()
+        window.$(progressBar).stop()
+      }
+    },
     detailClick(prgTypeCd, prgIdx) {
       if (!prgIdx.length) {
         this._alert('화면 이동 불가 pgIdx값 없음')
